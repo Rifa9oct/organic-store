@@ -1,5 +1,6 @@
 import Banner from "@/components/Banner";
 import Features from "@/components/Features";
+import Reviews from "@/components/Reviews";
 import ServiceItems from "@/components/ServiceItems";
 
 export const metadata = {
@@ -13,6 +14,7 @@ export default async function Home() {
       <Banner />
       <Features />
       <ServiceItems />
+      <Reviews />
     </div>
   );
 };

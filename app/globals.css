@@ -2,3 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes upDown {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.animate-bounce {
+    animation: upDown 2s ease-in-out infinite;
+}
