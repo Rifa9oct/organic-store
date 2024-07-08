@@ -3,14 +3,13 @@ import Link from "next/link";
 import { FaStar } from "react-icons/fa";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { FaArrowDownLong } from "react-icons/fa6";
+import HeaderTitle from "./HeaderTitle";
 
 const Reviews = () => {
     return (
         <>
-            <div className="flex flex-col justify-center items-center mb-16">
-                <h1 className="text-3xl md:text-4xl font-extrabold mb-3">Customers Reviews</h1>
-                <Image src="/little-leaf.png" width={75} height={33} alt="banner" />
-            </div>
+            <HeaderTitle title="Customers Reviews" />
+            
             <div className="flex flex-col lg:flex-row gap-6 lg:mx-[350px] justify-between mb-5">
                 <div className="w-[376px] mx-auto rounded-lg shadow-lg lg:mt-[80px] p-[50px] border" >
                     <div className="flex gap-1 justify-center mb-3">
@@ -53,9 +52,9 @@ const Reviews = () => {
                     </div>
                 </div>
             </div>
-            <div className="flex justify-center mb-[140px]">
+            <div className="flex justify-center">
                 <button className="animate-bounce mt-4 shadow-lg shadow-black transition bg-black hover:bg-lime-500 text-white px-[15px] py-3 rounded-full">
-                <FaArrowDownLong className="inline-block text-lg"/>More</button>
+                    <FaArrowDownLong className="inline-block text-lg" />More</button>
             </div>
         </>
     );
