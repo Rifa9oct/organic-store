@@ -7,7 +7,7 @@ const ServiceItems = () => {
     return (
         <div className="relative mb-[140px]">
             <div className="absolute left-[30%] md:left-[40%] lg:left-[45%] -top-8 w-[162px] h-[69px]">
-                <Image src="/leaf.png" width={162} height={69} alt="banner" className="" />
+                <Image src="/leaf.png" width={162} height={69} alt="banner" />
             </div>
 
             <div className="flex flex-col gap-6 lg:flex-row justify-center lg:justify-between bg-[#F8F6F3] py-[100px] lg:px-[350px]">

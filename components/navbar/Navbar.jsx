@@ -7,7 +7,7 @@ import NavList from './NavList';
 
 const Navbar = () => {
     return (
-        <div className='flex justify-between items-center py-4 mx-8'>
+        <div className='relative z-50 flex justify-between items-center py-4 mx-8'>
             <div className='flex gap-6 items-center text-gray-500'>
                 <Link href="/">
                     <Image src="/logo.png" width={150} height={70} alt="Logo" />
