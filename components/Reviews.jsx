@@ -10,8 +10,8 @@ const Reviews = () => {
         <>
             <HeaderTitle title="Customers Reviews" />
             
-            <div className="flex flex-col lg:flex-row gap-6 lg:mx-[350px] justify-between mb-5">
-                <div className="w-[376px] mx-auto rounded-lg shadow-lg lg:mt-[80px] p-[50px] border" >
+            <div className="max-w-[1200px] mx-auto flex flex-col lg:flex-row gap-6 justify-between mb-5">
+                <div className="w-[376px] mx-auto lg:mx-0 rounded-lg shadow-lg lg:mt-[80px] p-[50px] border" >
                     <div className="flex gap-1 justify-center mb-3">
                         <FaStar className="text-lg text-[#ffbb1e]" />
                         <FaStar className="text-lg text-[#ffbb1e]" />
@@ -26,7 +26,7 @@ const Reviews = () => {
                     </div>
                 </div>
 
-                <div className="w-[376px] mx-auto h-[422px] rounded-lg shadow-lg text-center text-white bg-[url('/offer.png')]">
+                <div className="w-[376px] mx-auto lg:mx-0 h-[422px] rounded-lg shadow-lg text-center text-white bg-[url('/offer.png')]">
                     <div className="flex flex-col justify-center bg-black bg-opacity-60 hover:bg-opacity-75 transition cursor-pointer h-[422px] rounded-lg">
                         <h1 className="text-4xl font-extrabold mb-3">Deal Of The Day <br /> 15% Off On All <br /> Vegetables!</h1>
                         <p className="text-gray-300">I am text block. Click edit button to <br />change this tex em ips.</p>
@@ -37,7 +37,7 @@ const Reviews = () => {
                     </div>
                 </div>
 
-                <div className="w-[376px] mx-auto rounded-lg shadow-lg lg:mt-[80px] p-[50px] border" >
+                <div className="w-[376px] mx-auto lg:mx-0 rounded-lg shadow-lg lg:mt-[80px] p-[50px] border" >
                     <div className="flex gap-1 justify-center mb-3">
                         <FaStar className="text-lg text-[#ffbb1e]" />
                         <FaStar className="text-lg text-[#ffbb1e]" />

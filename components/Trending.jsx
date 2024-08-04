@@ -6,7 +6,7 @@ const Trending = () => {
     return (
         <div>
             <HeaderTitle title="Trending Products" />
-            <div className="grid grid-cols-1 lg:grid-cols-4 lg:mx-[350px] gap-6 lg:gap-0 lg:justify-between">
+            <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:justify-between mb-[120px] lg:mb-0">
                 {
                     products.map((product, index) => <ProductCard key={index} product={product} />)
                 }

@@ -7,14 +7,14 @@ import { FaInstagram } from "react-icons/fa";
 const Footer = () => {
     return (
         <div className="pt-[75px] bg-black">
-            <div className="lg:px-[350px] lg:p-0 p-8 flex flex-col lg:flex-row text-center lg:text-start justify-between text-[#ffffffa8]">
+            <div className="max-w-[1200px] mx-auto lg:p-0 p-8 flex flex-col lg:flex-row text-center lg:text-start justify-between text-[#ffffffa8]">
                 <div>
                     <Link href="/">
                         <Image src="/footerLogo.png" width={150} height={70} alt="Logo" className="mx-auto lg:mx-0" />
                     </Link>
                     <p className="lg:mb-0 mb-8 mt-8 lg:w-[350px] text-lg font-bold">Maecenas mi justo, interdum at consectetur vel, tristique et arcu. Ut quis eros blandit, ultrices diam in, elementum ex. Suspendisse quis faucibus urna. Suspendisse pellentesque.</p>
                 </div>
-                <div className="flex justify-center gap-10 md:gap-16 mb-8 lg:mb-0">
+                <div className="flex flex-row lg:flex-col justify-center gap-10 lg:gap-0 md:gap-16 mb-8 lg:mb-0">
                     <div className="list-none">
                         <h1 className="text-2xl font-bold text-white mb-5">Quick Links</h1>
                         <li><Link href="/"></Link>Home</li>
@@ -52,7 +52,7 @@ const Footer = () => {
             </div>
 
             <div className="text-[#ffffffa8] mt-[75px] py-[30px] border-t border-gray-500">
-                <div className="px-8 lg:px-[350px] gap-4 md:gap-0 flex md:flex-row flex-col justify-center md:justify-between items-center">
+                <div className="max-w-[1200px] mx-auto px-8 lg:p-0 gap-4 md:gap-0 flex md:flex-row flex-col justify-center md:justify-between items-center">
                     <p>Copyright © 2024 | Organic Store</p>
                     <div className="flex list-none gap-6">
                         <li>

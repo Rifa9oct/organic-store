@@ -6,7 +6,7 @@ import { TiShoppingCart } from "react-icons/ti";
 
 const ProductCard = () => {
     return (
-        <div className=" mx-auto text-center w-[285px] lg:mb-[120px] group">
+        <div className="mx-auto text-center w-[285px] lg:mb-[120px] group">
             <div className="relative">
                 <Image src="/grocery1.png" width={285} height={285} alt="banner" className="mb-3" />
                 <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">

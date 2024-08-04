@@ -22,7 +22,7 @@ const AboutPage = () => {
                 </div>
             </div>
 
-            <div className="flex flex-col lg:flex-row p-8 justify-between items-center lg:mx-[350px] mt-[300px] lg:mt-[350px] mb-[60px] lg:mb-[100px]">
+            <div className="max-w-[1220px] mx-auto flex flex-col lg:flex-row p-8 lg:p-0 justify-between items-center mt-[300px] lg:mt-[350px] mb-[60px] lg:mb-[100px]">
                 <div>
                     <h1 className="text-4xl font-extrabold">We Are Your Favourite Store</h1>
                     <p className="lg:w-[510px] my-5 text-gray-500">Tuas quisquam quo gravida proident harum, aptent ligula anim consequuntur, ultrices mauris, nunc voluptates lobortis, varius, potenti placeat! Fuga omnis. Cubilia congue. Recusandae. Vero penatibus quasi! Nostra tenetur dignissimos ultrices natus distinctio ultrices consequuntur numqu.</p>
@@ -31,16 +31,18 @@ const AboutPage = () => {
                 <Image src="/about.png" width={580} height={398} alt="banner" />
             </div>
 
-            <div className="flex flex-col lg:flex-row items-center lg:px-[350px] lg:h-[173px] bg-black mb-[180px] text-white">
-                <div className="flex lg:flex-col flex-row gap-3 my-8 lg:my-0 lg:gap-0 text-xl font-bold lg:w-[300px]">
-                    <p>Numbers Speak For</p>
-                    <p>Themselves!</p>
-                </div>
+            <div className="bg-black">
+                <div className="max-w-[1220px] mx-auto flex flex-col lg:flex-row items-center lg:h-[173px] mb-[180px] text-white">
+                    <div className="flex lg:flex-col flex-row gap-3 my-8 lg:my-0 lg:gap-0 text-xl font-bold lg:w-[300px]">
+                        <p>Numbers Speak For</p>
+                        <p>Themselves!</p>
+                    </div>
 
-                <Countup />
+                    <Countup />
+                </div>
             </div>
 
-            <div className="flex p-5 md:p-0 flex-col lg:flex-row items-center lg:mx-[350px] mb-[80px]">
+            <div className="max-w-[1220px] mx-auto flex p-5 md:p-0 flex-col lg:flex-row justify-between items-center mb-[80px]">
                 <div className="relative md:w-[548px] h-[694px] bg-[#F8F6F3] mb-[80px] rounded-lg">
                     <div className="absolute -top-20 md:left-[48px]">
                         <ImageSlider />

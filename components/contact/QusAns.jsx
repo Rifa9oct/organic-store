@@ -11,7 +11,7 @@ const QusAns = () => {
     };
 
     return (
-        <div className="flex flex-col p-5 md:p-0 lg:flex-row justify-between lg:mx-[430px] mb-[120px]">
+        <div className="max-w-[1220px] mx-auto flex flex-col p-5 md:p-0 lg:flex-row justify-center lg:gap-16 mb-[120px]">
             <div>
                 <Accordian
                     onActive={() => handleSetActiveIndex(1)}

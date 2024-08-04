@@ -1,7 +1,11 @@
 import ContactInfo from "@/components/contact/ContactInfo";
 import QusAns from "@/components/contact/QusAns";
 import HeaderTitle from "@/components/HeaderTitle";
-import Image from "next/image";
+
+export const metadata = {
+    title: "Organic Store | Contact",
+    description: "Contact page description",
+};
 
 const ContactPage = () => {
 
