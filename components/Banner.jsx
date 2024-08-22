@@ -14,7 +14,7 @@ const Banner = () => {
                     <h1 className="text-4xl lg:text-6xl font-bold mt-3">Movement!</h1>
                     <p className="lg:w-[512px] text-gray-600 mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
                     <Link href="/shop">
-                        <button className="mt-4 bg-lime-600 hover:bg-lime-500 text-white px-5 py-3 rounded-md">
+                        <button className="mt-4 bg-lime-600 hover:bg-lime-500 text-white px-5 py-3 rounded-md md:mb-0 mb-10">
                             <FaShoppingCart className="inline-block text-lg mb-[2px]" /> Shop Now</button>
                     </Link>
                 </div>

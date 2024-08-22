@@ -6,7 +6,11 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      height: {
+        'screen-minus': 'calc(100vh - 290px)',
+      },
+    },
   },
   plugins: [],
 };
