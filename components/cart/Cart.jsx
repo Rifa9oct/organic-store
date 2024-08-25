@@ -23,13 +23,26 @@ const Cart = () => {
             }
         };
 
+        const handleBodyScroll = (lock) => {
+            if (lock) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        };
+
         updateDrawerSize();
+        handleBodyScroll(show);
 
         // Update the size on window resize
         window.addEventListener('resize', updateDrawerSize);
 
-        return () => window.removeEventListener('resize', updateDrawerSize);
-    }, []);
+        return () => {
+            window.removeEventListener('resize', updateDrawerSize);
+            handleBodyScroll(false);
+        }
+
+    }, [show]);
 
     return (
         <div>
@@ -56,7 +69,6 @@ const Cart = () => {
                             onClose={() => setShow(!show)}
                             direction='right'
                             size={drawerSize}
-                            lockBackgroundScroll
                             className="drawer-content text-sm lg:text-base flex flex-col py-6 text-black list-none"
                         >
                             <div>
