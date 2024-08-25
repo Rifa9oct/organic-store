@@ -5,34 +5,44 @@ import { FaUser } from "react-icons/fa";
 import NavList from './NavList';
 import Cart from '../cart/Cart';
 
-const Navbar = () => {
+const Navbar = ({ sideBar }) => {
     return (
         <div className='relative z-50 flex justify-between items-center py-4 lg:mx-8'>
-            <div className='flex gap-6 items-center text-gray-500'>
+            <div className='flex gap-6 items-center text-gray-600'>
                 <Link href="/">
                     <Image src="/logo.png" width={150} height={70} alt="Logo" />
                 </Link>
 
-                <div className='hidden lg:flex gap-6'>
-                    <Link href="/shop">Everything</Link>
-                    <Link href="/groceries">Groceries</Link>
-                    <Link href="/juice">Juice</Link>
-                </div>
+                {
+                    sideBar && (
+                        <div className='hidden lg:flex gap-6'>
+                            <Link href="/shop">Everything</Link>
+                            <Link href="/groceries">Groceries</Link>
+                            <Link href="/juice">Juice</Link>
+                        </div>
+                    )
+                }
             </div>
 
-            <div className='hidden lg:flex gap-6 items-center text-gray-500'>
-                <Link href="/about">About</Link>
-                <Link href="/contact">Contact</Link>
+            {
+                sideBar && (
+                    <>
+                        <div className='hidden lg:flex gap-6 items-center text-gray-500'>
+                            <Link href="/about">About</Link>
+                            <Link href="/contact">Contact</Link>
 
-                <Cart />
+                            <Cart />
 
-                <Link href="/account"><FaUser className='text-xl text-black' /></Link>
-            </div>
+                            <Link href="/account"><FaUser className='text-xl text-black' /></Link>
+                        </div>
 
-            <div className="lg:hidden flex items-center gap-6">
-                <Cart />
-                <NavList />
-            </div>
+                        <div className="lg:hidden flex items-center gap-6">
+                            <Cart />
+                            <NavList />
+                        </div>
+                    </>
+                )
+            }
         </div>
     );
 };

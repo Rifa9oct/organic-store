@@ -1,6 +1,11 @@
 import LeftSidebar from "@/components/shop/LeftSidebar";
 import RightSidebar from "@/components/shop/RightSidebar";
 
+export const metadata = {
+    title: "Organic Store | Shop",
+    description: "Shop page description",
+};
+
 const ShopPage = () => {
     return (
         <div className="bg-[#F8F6F3]">

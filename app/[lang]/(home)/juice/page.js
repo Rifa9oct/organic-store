@@ -1,6 +1,10 @@
 import LeftSidebar from "@/components/shop/LeftSidebar";
 import RightSidebar from "@/components/shop/RightSidebar";
 
+export const metadata = {
+    title: "Organic Store | Juice",
+    description: "Juice page description",
+};
 
 const JuicePage = () => {
     return (

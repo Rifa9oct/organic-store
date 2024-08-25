@@ -1,4 +1,9 @@
 
+export const metadata = {
+    title: "Organic Store | Cart",
+    description: "Cart page description",
+};
+
 const CartPage = () => {
     return (
         <div>

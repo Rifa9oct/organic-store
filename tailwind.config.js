@@ -10,6 +10,9 @@ module.exports = {
       height: {
         'screen-minus': 'calc(100vh - 290px)',
       },
+      colors: {
+        primary: "#fd3d57",
+      },
     },
   },
   plugins: [],
