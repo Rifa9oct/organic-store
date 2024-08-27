@@ -7,7 +7,7 @@ const Tabs = ({ config }) => {
 
     return (
         <div>
-            <div className="relative flex mb-5 border-b-2 z-10">
+            <div className="font-poppins relative flex mb-5 border-b-2">
                 {
                     config.map((entry, index) => (
                         <div key={index}
