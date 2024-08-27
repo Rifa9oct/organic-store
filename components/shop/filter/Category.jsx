@@ -4,7 +4,7 @@ const Category = () => {
         <div>
             <h3 className="text-2xl font-bold text-gray-800 mb-3 mt-10">Categories</h3>
 
-            <div className="space-y-2">
+            <div className="font-poppins space-y-2">
                 <div className="flex items-center">
                     <input
                         type="checkbox" name="groceries"

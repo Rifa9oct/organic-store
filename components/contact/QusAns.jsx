@@ -11,7 +11,7 @@ const QusAns = () => {
     };
 
     return (
-        <div className="max-w-[1320px] mx-auto flex flex-col p-5 md:p-0 lg:flex-row justify-center lg:gap-16 mb-[120px]">
+        <div className="font-poppins max-w-[1320px] mx-auto flex flex-col p-5 md:p-0 lg:flex-row justify-center lg:gap-16 mb-[120px]">
             <div>
                 <Accordian
                     onActive={() => handleSetActiveIndex(1)}

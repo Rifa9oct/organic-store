@@ -6,7 +6,7 @@ import ShpoCard from "./ShpoCard";
 const LeftSidebar = () => {
     return (
         <div className="lg:pt-[64px] p-5">
-            <div className="flex gap-2 items-center">
+            <div className="font-poppins flex gap-2 items-center">
                 <input className="border w-full p-3 rounded-md focus:border-lime-500 outline-none"
                  type="text" placeholder="search products..." />
 

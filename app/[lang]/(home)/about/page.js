@@ -22,11 +22,11 @@ const AboutPage = () => {
                 </div>
             </div>
 
-            <div className="max-w-[1320px] mx-auto flex flex-col lg:flex-row p-8 lg:p-0 justify-between items-center mt-[300px] lg:mt-[350px] mb-[60px] lg:mb-[100px]">
+            <div className="max-w-[1320px] mx-auto flex flex-col lg:flex-row p-8 lg:p-0 lg:gap-20 justify-center items-center mt-[300px] lg:mt-[350px] mb-[60px] lg:mb-[100px]">
                 <div>
                     <h1 className="text-4xl font-extrabold">We Are Your Favourite Store</h1>
-                    <p className="lg:w-[510px] my-5 text-gray-500">Tuas quisquam quo gravida proident harum, aptent ligula anim consequuntur, ultrices mauris, nunc voluptates lobortis, varius, potenti placeat! Fuga omnis. Cubilia congue. Recusandae. Vero penatibus quasi! Nostra tenetur dignissimos ultrices natus distinctio ultrices consequuntur numqu.</p>
-                    <p className="lg:w-[510px] text-gray-500 mb-10">Officiis fuga harum porro et? Similique rhoncus atque! Netus blanditiis provident nunc posuere. Rem sequi, commodo, lorem tellus elit, hic sem tenetur anim amet quas, malesuada proident platea corrupti expedita.</p>
+                    <p className="font-poppins lg:w-[540px] my-5 text-gray-500">Tuas quisquam quo gravida proident harum, aptent ligula anim consequuntur, ultrices mauris, nunc voluptates lobortis, varius, potenti placeat! Fuga omnis. Cubilia congue. Recusandae. Vero penatibus quasi! Nostra tenetur dignissimos ultrices natus distinctio ultrices consequuntur numqu.</p>
+                    <p className="font-poppins lg:w-[540px] text-gray-500 mb-10">Officiis fuga harum porro et? Similique rhoncus atque! Netus blanditiis provident nunc posuere. Rem sequi, commodo, lorem tellus elit, hic sem tenetur anim amet quas, malesuada proident platea corrupti expedita.</p>
                 </div>
                 <Image src="/about.png" width={580} height={398} alt="banner" />
             </div>
@@ -47,7 +47,7 @@ const AboutPage = () => {
                     <div className="absolute -top-20 md:left-[48px]">
                         <ImageSlider />
                     </div>
-                    <div className="pt-[400px] md:pt-[480px] flex flex-col justify-center items-center">
+                    <div className="font-poppins pt-[400px] md:pt-[480px] flex flex-col justify-center items-center">
                         <div className="flex gap-1 justify-center">
                             <FaStar className="mb-4 text-lg text-[#ffbb1e]" />
                             <FaStar className="mb-4 text-lg text-[#ffbb1e]" />
@@ -68,14 +68,14 @@ const AboutPage = () => {
                         <Image src="/about-logo.png" width={117} height={92} alt="banner" />
                         <div>
                             <h3 className="text-2xl font-bold mb-2">Certified Products</h3>
-                            <p className="text-gray-600">Click edit button to change this text. Lorem ipsum <br /> dolor sit amet</p>
+                            <p className="font-poppins text-gray-600">Click edit button to change this text. Lorem ipsum <br /> dolor sit amet</p>
                         </div>
                     </div>
 
                     <h1 className="text-2xl md:text-4xl font-extrabold text-center lg:text-start mt-8 mb-5">We Deal With Various Quality <br /> Organic Products!</h1>
                     <Image src="/little-leaf.png" width={75} height={33} alt="banner" />
 
-                    <div className="flex gap-10 md:gap-[150px] list-none mt-8 text-gray-600">
+                    <div className="font-poppins flex gap-10 md:gap-[150px] list-none mt-8 text-gray-600">
                         <div>
                             <li className="mb-3"><IoMdCheckmarkCircleOutline className="mr-2 text-lime-500 text-xl inline-block" />Fresh fruits</li>
                             <li className="mb-3"><IoMdCheckmarkCircleOutline className="mr-2 text-lime-500 text-xl inline-block" />Dry fruits</li>
@@ -93,7 +93,7 @@ const AboutPage = () => {
                     </div>
 
                     <Link href="/shop">
-                        <button className="mt-4 bg-lime-600 text-sm hover:bg-lime-500 text-white px-8 py-3 rounded-md">
+                        <button className="font-poppins mt-4 bg-lime-600 text-sm hover:bg-lime-500 text-white px-8 py-3 rounded-md">
                             <FaShoppingCart className="inline-block text-lg mb-[2px] mr-2" />START SHOPPING</button>
                     </Link>
                 </div>

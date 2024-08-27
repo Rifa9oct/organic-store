@@ -7,7 +7,7 @@ import Cart from '../cart/Cart';
 
 const Navbar = ({ sideBar }) => {
     return (
-        <div className='relative z-50 flex justify-between items-center py-4 lg:mx-8'>
+        <div className='font-poppins relative z-50 flex justify-between items-center py-4 lg:mx-8'>
             <div className='flex gap-6 items-center text-gray-600'>
                 <Link href="/">
                     <Image src="/logo.png" width={150} height={70} alt="Logo" />

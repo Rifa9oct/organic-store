@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 const ContactInfo = () => {
     return (
-        <div className='relative bg-white rounded-lg mx-auto w-[340px]  md:w-[650px] lg:w-[1200px] shadow-lg pb-12 pt-24 px-10'>
+        <div className='font-poppins relative bg-white rounded-lg mx-auto w-[340px]  md:w-[650px] lg:w-[1200px] shadow-lg pb-12 pt-24 px-10'>
             <div className='absolute -top-10 left-[75px] md:left-[245px] lg:left-[500px]'>
                 <Image src="/leaf.png" width={162} height={69} alt="banner" className="mx-auto" />
             </div>

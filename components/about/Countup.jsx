@@ -9,7 +9,7 @@ const Countup = () => {
     
     return (
         <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)} >
-            <div className='flex flex-col md:flex-row items-center pb-10 lg:pb-0 gap-10 text-center'>
+            <div className='font-poppins flex flex-col md:flex-row items-center pb-10 lg:pb-0 gap-10 text-center'>
                 <div className='lg:w-[300px]'>
                     {
                         counterOn &&
@@ -17,7 +17,7 @@ const Countup = () => {
                             <CountUp start={0} end={5000} duration={2} />+
                         </h1>
                     }
-                    <h2 className="text-xl font-bold">Years of Services</h2>
+                    <h2 className="text-xl">Years of Services</h2>
                 </div>
                 <div className='lg:w-[300px]'>
                     {
@@ -26,7 +26,7 @@ const Countup = () => {
                             <CountUp start={0} end={800} duration={2} />+
                         </h1>
                     }
-                    <h2 className="text-xl font-bold">Curated Products</h2>
+                    <h2 className="text-xl">Curated Products</h2>
                 </div>
                 <div className='lg:w-[300px]'>
                     {
@@ -35,7 +35,7 @@ const Countup = () => {
                             <CountUp start={0} end={40} duration={2} />+
                         </h1>
                     }
-                    <h2 className="text-xl font-bold">Product Categories</h2>
+                    <h2 className="text-xl">Product Categories</h2>
                 </div>
             </div>
         </ScrollTrigger>

@@ -4,7 +4,7 @@ const Price = () => {
     return (
         <div className="pt-4">
             <h3 className="text-2xl font-bold text-gray-800 mb-3 mt-8">Price</h3>
-            <div className="mt-4 flex items-center">
+            <div className="font-poppins mt-4 flex items-center">
                 <input
                     type="text" name="min" id="min"
                     className="w-full border focus:border-lime-500 outline-none rounded focus:ring-0 px-3 py-1 text-gray-600 shadow-sm"
