@@ -5,7 +5,7 @@ import { FaShoppingCart } from "react-icons/fa";
 const Banner = () => {
     return (
         <div className="bg-[#F8F6F3]">
-            <div className="max-w-[1220px] mx-auto flex md:flex-row flex-col-reverse text-center md:text-start justify-between items-center py-10 md:py-16 lg:py-[128px]">
+            <div className="max-w-[1320px] mx-auto flex md:flex-row flex-col-reverse text-center md:text-start justify-between items-center py-10 md:py-16 lg:py-[128px]">
                 <Image src="/banner.png" width={607} height={520} alt="banner" className="mx-auto md:mx-0 w-[350px] lg:w-[607px]" />
                 <div>
                     <Image src="/little-leaf.png" width={75} height={33} alt="banner" className="md:mx-0 mx-auto" />

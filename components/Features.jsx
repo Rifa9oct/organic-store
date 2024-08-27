@@ -6,7 +6,7 @@ import { GiReceiveMoney } from "react-icons/gi";
 const Features = () => {
     return (
         <div className="bg-black py-[35px] mb-[140px]">
-            <div className="max-w-[1220px] mx-auto grid md:grid-cols-2 grid-cols-1 lg:grid-cols-4 gap-8">
+            <div className="max-w-[1320px] mx-auto grid md:grid-cols-2 grid-cols-1 lg:grid-cols-4 gap-8">
                 <div className="flex justify-center items-center gap-4 w-[285px] h-[122px] mx-auto bg-[#333333] rounded-md">
                     <MdLocalShipping className="text-4xl text-lime-600" />
                     <div className="text-white">
