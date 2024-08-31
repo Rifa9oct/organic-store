@@ -26,7 +26,7 @@ const LoginPage = async () => {
 
                 <SocialLogin />
 
-                <p className="mt-4 text-center text-gray-600">Don't have account?
+                <p className="mt-4 text-center text-gray-600">Don&apos;t have account?
                     <Link href="/register" className="text-lime-500"> Register now</Link>
                 </p>
             </div>
