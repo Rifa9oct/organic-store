@@ -1,7 +1,6 @@
-import { replaceMongoIdInArray } from "@/utils/data-utils";
-
-const { default: connectMongo } = require("@/dbConnect/connectMongo");
-const { default: productModel } = require("@/models/product-model");
+import { replaceMongoIdInArray, replaceMongoIdInObject } from "@/utils/data-utils";
+import connectMongo from "@/dbConnect/connectMongo";
+import productModel from "@/models/product-model";
 
 const getProducts = async () => {
     await connectMongo();
@@ -9,6 +8,17 @@ const getProducts = async () => {
     return replaceMongoIdInArray(products);
 };
 
+const getProductById = async (productId) => {
+    await connectMongo();
+    try {
+        const singleProduct = await productModel.findById(productId);
+        return replaceMongoIdInObject(singleProduct);
+    } catch (err) {
+        throw err;
+    }
+};
+
 export {
     getProducts,
+    getProductById
 }

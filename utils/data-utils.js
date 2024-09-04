@@ -9,3 +9,10 @@ export const replaceMongoIdInArray = (array) => {
 
     return mappedArray;
 };
+
+export const replaceMongoIdInObject = (obj) => {
+    if (obj) {
+        const { _id, __v, $__, $isNew, ...updatedObj } = obj?._doc;
+        return { ...updatedObj, id: _id.toString() };
+    }
+};
