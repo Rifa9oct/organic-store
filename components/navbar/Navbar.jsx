@@ -15,7 +15,7 @@ const Navbar = ({ sideBar }) => {
 
                 {
                     sideBar && (
-                        <div className='hidden lg:flex gap-6'>
+                        <div className='hidden text-lg lg:flex gap-6'>
                             <Link href="/shop">Everything</Link>
                             <Link href="/groceries">Groceries</Link>
                             <Link href="/juice">Juice</Link>
@@ -27,7 +27,7 @@ const Navbar = ({ sideBar }) => {
             {
                 sideBar && (
                     <>
-                        <div className='hidden lg:flex gap-6 items-center text-gray-500'>
+                        <div className='hidden text-lg lg:flex gap-6 items-center text-gray-500'>
                             <Link href="/about">About</Link>
                             <Link href="/contact">Contact</Link>
 

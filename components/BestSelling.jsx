@@ -1,14 +1,17 @@
+import { getProducts } from "@/queries/product-queries";
 import HeaderTitle from "./HeaderTitle";
 import ProductCard from "./ProductCard";
 
-const BestSelling = () => {
-    const products = [1, 2, 3, 4];
+const BestSelling = async () => {
+    const products = await getProducts();
+    const bestSellingProducts = products.filter(product => product.arivalStatus === "best selling");
+
     return (
         <div>
             <HeaderTitle title="Best Selling Products" />
             <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-[120px]">
                 {
-                    products.map((product, index) => <ProductCard key={index} product={product} />)
+                    bestSellingProducts.slice(0,4).map((product, index) => <ProductCard key={index} product={product} />)
                 }
             </div>
         </div>

@@ -109,9 +109,12 @@ const Cart = () => {
                                 </div>
 
                                 <div className='m-5'>
-                                    <button
-                                        className='uppercase rounded-md hover:bg-lime-500 bg-lime-600 py-3 w-full text-white transition'
-                                    >Continue Shopping</button>
+                                    <Link href="/shop">
+                                        <button
+                                            onClick={() => setShow(false)}
+                                            className='uppercase rounded-md hover:bg-lime-500 bg-lime-600 py-3 w-full text-white transition'
+                                        >Continue Shopping</button>
+                                    </Link>
                                 </div>
                             </div>
                         </Drawer>

@@ -5,6 +5,7 @@ import Features from "@/components/Features";
 import Reviews from "@/components/Reviews";
 import ServiceItems from "@/components/ServiceItems";
 import Trending from "@/components/Trending";
+import { getProducts } from "@/queries/product-queries";
 
 export const metadata = {
   title: "Organic Store | Home",
@@ -12,6 +13,7 @@ export const metadata = {
 };
 
 export default async function Home() {
+
   return (
     <div>
       <Banner />
