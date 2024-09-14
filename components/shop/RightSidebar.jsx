@@ -1,11 +1,15 @@
+import { getProducts } from "@/queries/product-queries";
 import ProductCard from "../ProductCard";
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
 
-const RightSidebar = ({ title }) => {
+const RightSidebar = async ({ title }) => {
+    // lg:h-[1185px]
+    
+    const products = await getProducts();
     return (
-        <div className="flex flex-col lg:w-[855px] lg:h-[1185px] p-5 lg:pl-[60px] mt-8 lg:mt-[65px] pb-8 border-l-2">
+        <div className="flex flex-col p-5 lg:pl-[60px] mt-8 lg:mt-[65px] pb-8 border-l-2">
             <h3 className="font-poppins text-gray-500 text-sm md:mb-3">Home / {title}</h3>
-            <h1 className="mb-[52px] md:text-[52px] text-5xl font-bold text-lime-500">{title}</h1>
+            <h1 className="mb-[52px] lg:text-[52px] text-4xl font-bold text-lime-500">{title}</h1>
             {
                 title !== "Shop" && (
                     <p className="font-poppins text-gray-500 mb-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dignissim, velit et luctus interdum, est quam scelerisque tellus, eget luctus mi diam vitae erat. Praesent porttitor lacus vitae dictum posuere. Suspendisse elementum metus ac dolor tincidunt, eu imperdiet nisi dictum.</p>
@@ -23,10 +27,10 @@ const RightSidebar = ({ title }) => {
                 </select>
             </div>
 
-            <div className="grow-0 lg:grow flex gap-6 mt-[32px]">
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
+            <div className="grid md:grid-cols-3 grid-cols-1 gap-6 lg:gap-8 grow-0 lg:grow mt-[32px]">
+                {
+                    products.map((product, index) => <ProductCard key={index} product={product} />)
+                }
             </div>
 
             <div className="flex items-center mt-[60px]">

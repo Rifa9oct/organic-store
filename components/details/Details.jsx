@@ -95,7 +95,7 @@ const Details = async ({product}) => {
                 <Tabs
                     config={[
                         { header: "Description", component: <Description des={product.description}/> },
-                        { header: "Reviews (0)", component: <Reviews /> },
+                        { header: "Reviews", component: <Reviews /> },
                     ]}
                 />
             </div>
