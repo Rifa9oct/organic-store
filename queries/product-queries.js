@@ -8,17 +8,28 @@ const getProducts = async () => {
     return replaceMongoIdInArray(products);
 };
 
-const getPerPageProducts = async (page) => {
+const getPerPageProducts = async (page, title) => {
     await connectMongo();
     const skip = (page - 1) * 9;
+    const category = title === "Juice"? title:"grocery";
+
     try {
         const allProducts = await productModel.find().skip(skip).limit(9);
+        const categorized = await productModel.find({ category: { $regex: new RegExp(category, "i") } }).skip(skip).limit(9);
+
         const products = replaceMongoIdInArray(allProducts);
+        const categorizedProducts = replaceMongoIdInArray(categorized);
+
         const totalProducts = await productModel.countDocuments();
+        const categorizedTotalProducts = await productModel.countDocuments({
+            category: { $regex: new RegExp(category, "i") }
+        });
 
         return {
             products,
             totalProducts,
+            categorizedProducts,
+            categorizedTotalProducts
         };
     } catch (err) {
         throw err;
