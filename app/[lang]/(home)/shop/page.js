@@ -6,7 +6,8 @@ export const metadata = {
     description: "Shop page description",
 };
 
-const ShopPage = () => {
+const ShopPage = ({searchParams: {page}}) => {
+    const pageNo = page? page : "1";
     
     return (
         <div className="bg-[#F8F6F3]">
@@ -14,6 +15,7 @@ const ShopPage = () => {
                 <LeftSidebar />
                 <RightSidebar
                     title="Shop"
+                    pageNo={pageNo}
                 />
             </div>
         </div>

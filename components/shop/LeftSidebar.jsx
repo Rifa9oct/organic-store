@@ -1,8 +1,7 @@
 import { FaAngleRight } from "react-icons/fa6";
 import Category from "./filter/Category";
 import Price from "./filter/Price";
-import ShpoCard from "./ShpoCard";
-import ProductCard from "../ProductCard";
+import ShopCard from "./ShopCard";
 import { getProducts } from "@/queries/product-queries";
 
 const LeftSidebar = async () => {
@@ -23,7 +22,7 @@ const LeftSidebar = async () => {
 
             <div className="hidden lg:flex flex-col gap-10 mt-16">
                 {
-                    trendingProducts.slice(0, 3).map((product, index) => <ShpoCard key={index} product={product} />)
+                    trendingProducts.slice(0, 3).map((product, index) => <ShopCard key={index} product={product} />)
                 }
             </div>
         </div>

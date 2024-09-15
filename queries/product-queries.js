@@ -8,6 +8,25 @@ const getProducts = async () => {
     return replaceMongoIdInArray(products);
 };
 
+const getPerPageProducts = async (page) => {
+    await connectMongo();
+    const skip = (page - 1) * 9;
+    try {
+        const allProducts = await productModel.find().skip(skip).limit(9);
+        const products = replaceMongoIdInArray(allProducts);
+        const totalProducts = await productModel.countDocuments();
+
+        return {
+            products,
+            totalProducts,
+        };
+    } catch (err) {
+        throw err;
+    }
+
+};
+
+
 const getProductById = async (productId) => {
     await connectMongo();
     try {
@@ -20,5 +39,6 @@ const getProductById = async (productId) => {
 
 export {
     getProducts,
-    getProductById
+    getProductById,
+    getPerPageProducts
 }
