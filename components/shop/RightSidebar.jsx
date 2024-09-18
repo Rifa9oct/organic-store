@@ -2,13 +2,11 @@ import { getPerPageProducts } from "@/queries/product-queries";
 import ProductCard from "../ProductCard";
 import Pagination from "./Pagination";
 
-const RightSidebar = async ({ title, pageNo }) => {
-    const { products, categorizedProducts, totalProducts, categorizedTotalProducts } = await getPerPageProducts(pageNo, title);
-
-    const productCount = title === "Shop" ? totalProducts : categorizedTotalProducts;
+const RightSidebar = async ({ title, query, pageNo }) => {
+    const { products, totalProduct } = await getPerPageProducts(title, query, pageNo);
 
     const start = (pageNo - 1) * 9 + 1;
-    const end = Math.min((pageNo - 1) * 9 + 9, productCount);
+    const end = Math.min((pageNo - 1) * 9 + 9, totalProduct);
 
     return (
         <div className="flex flex-col p-5 lg:pl-[60px] mt-8 lg:mt-[65px] pb-8 border-l-2">
@@ -21,7 +19,7 @@ const RightSidebar = async ({ title, pageNo }) => {
             }
 
             <div className="font-poppins flex justify-between items-center text-gray-500">
-                <h3>Showing {`${start}-${end} of ${productCount} `}results</h3>
+                <h3>Showing {`${start}-${end} of ${totalProduct} `}results</h3>
                 <select className="font-poppins p-2 outline-lime-500 cursor-pointer">
                     <option value="Default Sorting" defaultValue="Default Sorting">Default sorting</option>
                     <option value="Sort by popularity">Sort by popularity</option>
@@ -32,25 +30,12 @@ const RightSidebar = async ({ title, pageNo }) => {
             </div>
 
             <div className="grid md:grid-cols-3 grid-cols-1 gap-6 lg:gap-8 mt-[32px]">
-
                 {
-                    title === "Shop" ? (
-                        <>
-                            {
-                                products.map((product, index) => <ProductCard key={index} product={product} />)
-                            }
-                        </>
-                    ) : (
-                        <>
-                            {
-                                categorizedProducts.map((product, index) => <ProductCard key={index} product={product} />)
-                            }
-                        </>
-                    )
+                    products.map((product, index) => <ProductCard key={index} product={product} />)
                 }
             </div>
 
-            <Pagination productCount={productCount} />
+            <Pagination totalProduct={totalProduct} />
         </div>
     );
 };

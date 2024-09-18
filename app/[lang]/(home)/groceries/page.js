@@ -7,7 +7,7 @@ export const metadata = {
     description: "Groceries page description",
 };
 
-const GroceriesPage = ({ searchParams: { page } }) => {
+const GroceriesPage = ({ searchParams: { query, page } }) => {
     const pageNo = page ? page : "1";
 
     return (
@@ -17,6 +17,7 @@ const GroceriesPage = ({ searchParams: { page } }) => {
                 <RightSidebar
                     title="Groceries"
                     pageNo={pageNo}
+                    query={query}
                 />
             </div>
         </div>

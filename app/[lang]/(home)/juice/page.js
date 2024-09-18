@@ -6,7 +6,7 @@ export const metadata = {
     description: "Juice page description",
 };
 
-const JuicePage = ({ searchParams: { page } }) => {
+const JuicePage = ({ searchParams: { query, page } }) => {
     const pageNo = page ? page : "1";
 
     return (
@@ -16,6 +16,7 @@ const JuicePage = ({ searchParams: { page } }) => {
                 <RightSidebar
                     title="Juice"
                     pageNo={pageNo}
+                    query={query}
                 />
             </div>
         </div>

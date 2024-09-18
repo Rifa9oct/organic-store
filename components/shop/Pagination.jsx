@@ -4,13 +4,13 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
 
-const Pagination = ({ productCount }) => {
+const Pagination = ({ totalProduct }) => {
     const [currentPage, setCurrentPage] = useState(1);
     const searchParams = useSearchParams();
     const pathname = usePathname();
     const { replace } = useRouter();
 
-    const numberOfPages = Math.ceil(productCount / 9);
+    const numberOfPages = Math.ceil(totalProduct / 9);
     const pages = [...Array(numberOfPages).keys()].map(i => i + 1);
 
     const params = new URLSearchParams(searchParams);
@@ -26,7 +26,7 @@ const Pagination = ({ productCount }) => {
     return (
         <>
             {
-                productCount > 9 && (
+                totalProduct > 9 && (
                     <div className="flex items-center mt-[60px]">
                         {
                             currentPage > 1 && (

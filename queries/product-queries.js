@@ -8,28 +8,41 @@ const getProducts = async () => {
     return replaceMongoIdInArray(products);
 };
 
-const getPerPageProducts = async (page, title) => {
+const getPerPageProducts = async (title, query, page) => {
     await connectMongo();
     const skip = (page - 1) * 9;
-    const category = title === "Juice"? title:"grocery";
+    const category = title === "Juice" ? title : "grocery";
 
     try {
-        const allProducts = await productModel.find().skip(skip).limit(9);
-        const categorized = await productModel.find({ category: { $regex: new RegExp(category, "i") } }).skip(skip).limit(9);
+        let products, totalProduct, searchProducts, categorized;
+        
+        const allProduct = await productModel.find().skip(skip).limit(9);
 
-        const products = replaceMongoIdInArray(allProducts);
-        const categorizedProducts = replaceMongoIdInArray(categorized);
+        products = replaceMongoIdInArray(allProduct);
+        totalProduct = await productModel.countDocuments();
 
-        const totalProducts = await productModel.countDocuments();
-        const categorizedTotalProducts = await productModel.countDocuments({
-            category: { $regex: new RegExp(category, "i") }
-        });
+        if (title !== "Shop") {
+            categorized = await productModel.find({ category: { $regex: new RegExp(category, "i") } }).skip(skip).limit(9);
+
+            products = replaceMongoIdInArray(categorized);
+            totalProduct = await productModel.countDocuments({
+                category: { $regex: new RegExp(category, "i") }
+            });
+        }
+        if (query) {
+            if (title !== "Shop") {
+                searchProducts = categorized.filter(product => product.title.toLowerCase().includes(query.toLowerCase()));
+            } else {
+                searchProducts = products.filter(product => product.title.toLowerCase().includes(query.toLowerCase()));
+            }
+
+            products = searchProducts;
+            totalProduct = searchProducts.length;
+        }
 
         return {
             products,
-            totalProducts,
-            categorizedProducts,
-            categorizedTotalProducts
+            totalProduct
         };
     } catch (err) {
         throw err;
