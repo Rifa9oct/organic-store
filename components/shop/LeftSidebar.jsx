@@ -1,4 +1,3 @@
-import { FaAngleRight } from "react-icons/fa6";
 import Category from "./filter/Category";
 import Price from "./filter/Price";
 import ShopCard from "./ShopCard";
@@ -12,9 +11,8 @@ const LeftSidebar = async () => {
     return (
         <div className="lg:w-[305px] lg:mr-[60px] lg:pt-[64px] p-8 lg:p-0">
             <Search />
-
-            <Category />
             <Price />
+            <Category />
 
             <div className="hidden lg:flex flex-col gap-10 mt-16">
                 {
