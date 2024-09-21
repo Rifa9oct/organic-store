@@ -10,19 +10,20 @@ const getProducts = async () => {
 
 const getPerPageProducts = async (title, query, page) => {
     await connectMongo();
+
     const skip = (page - 1) * 9;
     const category = title === "Juice" ? title : "grocery";
 
     try {
-        let products, totalProduct, searchProducts, categorized;
-        
+        let products, totalProduct, searchProducts;
+
         const allProduct = await productModel.find().skip(skip).limit(9);
 
         products = replaceMongoIdInArray(allProduct);
         totalProduct = await productModel.countDocuments();
 
         if (title !== "Shop") {
-            categorized = await productModel.find({ category: { $regex: new RegExp(category, "i") } }).skip(skip).limit(9);
+            const categorized = await productModel.find({ category: { $regex: new RegExp(category, "i") } }).skip(skip).limit(9);
 
             products = replaceMongoIdInArray(categorized);
             totalProduct = await productModel.countDocuments({
@@ -31,12 +32,15 @@ const getPerPageProducts = async (title, query, page) => {
         }
         if (query) {
             if (title !== "Shop") {
+                const categorized = await productModel.find({ category: { $regex: new RegExp(category, "i") } });
+
                 searchProducts = categorized.filter(product => product.title.toLowerCase().includes(query.toLowerCase()));
             } else {
-                searchProducts = products.filter(product => product.title.toLowerCase().includes(query.toLowerCase()));
+                const allProduct = await productModel.find();
+                searchProducts = allProduct.filter(product => product.title.toLowerCase().includes(query.toLowerCase()));
             }
 
-            products = searchProducts;
+            products = replaceMongoIdInArray(searchProducts);
             totalProduct = searchProducts.length;
         }
 

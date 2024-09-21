@@ -9,7 +9,7 @@ export const metadata = {
 const NotFound = () => {
     return (
         <div className="flex flex-col items-center justify-center h-auto mt-16">
-            <Image src="/error.png" width={600} height={600} alt="" />
+            <Image src="/error.png" width={600} height={600} alt="not-found" />
             <h1 className="text-center font-medium text-2xl mt-8">Sorry, We can not find that page!🙁</h1>
             <div className="mt-5">
                 <Link href="/">

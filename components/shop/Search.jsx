@@ -36,6 +36,7 @@ const Search = () => {
                 onChange={(e) => {
                     handleSearch(e.target.value);
                 }}
+                defaultValue={searchParams.get("query")?.toString()}
                 className="border w-full py-3 pl-10 rounded-md focus:border-lime-500 outline-none"
                 type="text" placeholder="search products..."
             />
