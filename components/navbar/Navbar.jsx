@@ -5,9 +5,11 @@ import { FaUser } from "react-icons/fa";
 import NavList from './NavList';
 import Cart from '../cart/Cart';
 import { auth } from '@/auth';
+import Account from '../account/Account';
 
 const Navbar = async ({ sideBar }) => {
     const session = await auth();
+    const user = session?.user;
     // console.log(session)
     return (
         <div className='font-poppins relative z-50 flex justify-between items-center py-4 lg:mx-8'>
@@ -36,7 +38,11 @@ const Navbar = async ({ sideBar }) => {
 
                             <Cart />
 
-                            <Link href="/account"><FaUser className='text-xl text-black' /></Link>
+                            {
+                                user ? (<Account user={user} />) : (
+                                    <Link href="/login" ><FaUser className='text-xl text-black' /></Link>
+                                )
+                            }
                         </div>
 
                         <div className="lg:hidden flex items-center gap-6">
