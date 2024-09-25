@@ -4,8 +4,11 @@ import React from 'react';
 import { FaUser } from "react-icons/fa";
 import NavList from './NavList';
 import Cart from '../cart/Cart';
+import { auth } from '@/auth';
 
-const Navbar = ({ sideBar }) => {
+const Navbar = async ({ sideBar }) => {
+    const session = await auth();
+    // console.log(session)
     return (
         <div className='font-poppins relative z-50 flex justify-between items-center py-4 lg:mx-8'>
             <div className='flex gap-6 items-center text-gray-600'>
