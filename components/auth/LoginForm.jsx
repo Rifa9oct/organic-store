@@ -1,17 +1,36 @@
 "use client"
 
+import { login } from "@/actions";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { MdError } from "react-icons/md";
+import Swal from "sweetalert2";
 
 const LoginForm = () => {
     const [showPassword, setShowPassword] = useState(false);
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
+    const router = useRouter();
 
-    const onSubmit = (data) => {
-        console.log(data);
+    const onSubmit = async (data) => {
+        try {
+            const res = await login(data);
+            if (res.status === 200) {
+                router.push("/account");
+            }
+        } catch (err) {
+            if (err.message) {
+                Swal.fire({
+                    title: "Login Failed!",
+                    text: `${err?.message}😟`,
+                    icon: "error",
+                });
+            } else {
+                console.log(err)
+            }
+        }
         reset();
     }
 
@@ -32,13 +51,11 @@ const LoginForm = () => {
                         <label htmlFor="password" className="text-gray-600 mb-2 block">Password</label>
                         <div className="relative">
                             <input type={showPassword ? "text" : "password"}
-                                {...register("password", { required: true, minLength: 6, maxLength: 20 })}
+                                {...register("password", { required: true })}
                                 name="password"
                                 className="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring- focus:outline-none focus:border-lime-500 placeholder-gray-400"
                                 placeholder="*******" />
                             {errors.password?.type === "required" && <p className="text-sm mt-1 text-red-500"><MdError className="text-lg inline" /> Password is required.</p>}
-                            {errors.password?.type === "minLength" && <p className="text-sm mt-1 text-red-500"><MdError className="text-lg inline" /> Password must be 6 characters.</p>}
-                            {errors.password?.type === "maxLength" && <p className="text-sm mt-1 text-red-500"><MdError className="text-lg inline" /> Password must be less than 15 characters.</p>}
                             <span className="absolute top-4 right-4 text-gray-500" onClick={() => setShowPassword(!showPassword)}>
                                 {
                                     showPassword ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>
