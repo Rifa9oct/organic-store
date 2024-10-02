@@ -13,6 +13,7 @@
     "@formatjs/intl-localematcher": "^0.5.4",
     "axios": "^1.7.7",
     "bcrypt": "^5.1.1",
+    "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.9.0",
     "mongoose": "^8.6.1",
     "negotiator": "^0.6.3",
