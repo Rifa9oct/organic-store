@@ -61,7 +61,7 @@ const Details = async ({product}) => {
 
                     <div className="font-poppins mt-4">
                         <h3 className="text-sm text-gray-800 uppercase mb-1">Quantity</h3>
-                        <Quantity />
+                        <Quantity totalQuantity={ product.quantity }/>
                     </div>
 
                     <div className="font-poppins mt-6 flex gap-3 border-b border-gray-200 pb-5 pt-5">
