@@ -11,8 +11,10 @@ import Related from "./Related";
 import Tabs from "./tabs/Tabs";
 import Description from "./tabs/Description";
 import Reviews from "./tabs/ReviewForm";
+import { auth } from "@/auth";
 
-const Details = async ({product}) => {
+const Details = async ({ product }) => {
+    const session = await auth();
 
     return (
         <>
@@ -57,16 +59,19 @@ const Details = async ({product}) => {
                         {/* <p className="text-base text-gray-400 line-through">${product?.discount}</p> */}
                     </div>
 
-                    <p className="font-poppins mt-4 text-gray-600">{product.description.slice(0,180)}...</p>
+                    <p className="font-poppins mt-4 text-gray-600">{product.description.slice(0, 180)}...</p>
 
                     <div className="font-poppins mt-4">
                         <h3 className="text-sm text-gray-800 uppercase mb-1">Quantity</h3>
-                        <Quantity totalQuantity={ product.quantity }/>
+                        <Quantity totalQuantity={product.quantity} />
                     </div>
 
                     <div className="font-poppins mt-6 flex gap-3 border-b border-gray-200 pb-5 pt-5">
                         <div>
-                            <AddToCart />
+                            <AddToCart
+                                userId = {session?.user?.userId}
+                                product = {product}
+                            />
                         </div>
 
                         <Checkout />
@@ -94,13 +99,13 @@ const Details = async ({product}) => {
             <div>
                 <Tabs
                     config={[
-                        { header: "Description", component: <Description des={product.description}/> },
+                        { header: "Description", component: <Description des={product.description} /> },
                         { header: "Reviews", component: <Reviews /> },
                     ]}
                 />
             </div>
 
-            <Related category={product?.category}/>
+            <Related category={product?.category} />
         </>
     );
 };

@@ -4,12 +4,15 @@ import { useEffect } from "react";
 import { signOut, useSession } from "next-auth/react";
 import { axiosAuth } from "@/axiosAuth";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 const useAxios = () => {
-    const { data: session } = useSession();
-    console.log(session)
+    const { data: session, status } = useSession();
+    const router = useRouter();
+    console.log(session?.user, status);
 
     useEffect(() => {
+
         // Add a request interceptor
         const requestIntercept = axiosAuth.interceptors.request.use(
             (config) => {
@@ -55,7 +58,7 @@ const useAxios = () => {
             axiosAuth.interceptors.request.eject(requestIntercept);
             axiosAuth.interceptors.response.eject(responseIntercept);
         }
-    }, [session?.user]);
+    }, [session?.user, router]);
 
     return { axiosAuth };
 };

@@ -18,7 +18,7 @@ const LoginForm = () => {
         try {
             const res = await login(data);
             if (res.status === 200) {
-                router.push("/account");
+                router.push("/");
             }
         } catch (err) {
             if (err.message) {

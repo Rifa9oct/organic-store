@@ -39,7 +39,7 @@ export const {
                             const accessToken = jwt.sign(
                                 { id: user._id, email: user.email },
                                 process.env.AUTH_SECRET,
-                                { expiresIn: '1m' }
+                                { expiresIn: '1h' }
                             );
                             const refreshToken = jwt.sign(
                                 { id: user._id, email: user.email },
@@ -72,13 +72,12 @@ export const {
     ],
     callbacks: {
         async jwt({ token, user, account }) {
-
             if (account && user) {
                 token.id = user.id;
                 token.accessToken = jwt.sign(
                     { id: user.id, email: user.email },
                     process.env.AUTH_SECRET,
-                    { expiresIn: '1m' }
+                    { expiresIn: '1h' }
                 );
                 token.refreshToken = jwt.sign(
                     { id: user.id, email: user.email },

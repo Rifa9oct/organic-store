@@ -1,6 +1,7 @@
 "use server"
 
 import { signIn } from "@/auth";
+import { revalidatePath } from "next/cache";
 
 export async function login(formData) {
     try {
