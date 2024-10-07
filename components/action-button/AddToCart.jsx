@@ -10,12 +10,17 @@ import Swal from "sweetalert2";
 
 const AddToCart = ({ userId, product }) => {
     const { axiosAuth } = useAxios();
+    const { status, update } = useSession();
     const [error, setError] = useState();
     const searchParams = useSearchParams();
     const router = useRouter();
     const quantity = searchParams.get("quantity")?.toString();
 
     const { id: productId, title, thumbnail, price } = product;
+
+    if (status === "unauthenticated") {
+        update();
+    }
 
     const handleClick = async () => {
         if (!quantity) {
@@ -49,9 +54,15 @@ const AddToCart = ({ userId, product }) => {
                     timer: 1500
                 });
             }
+
         } catch (error) {
-            console.error(error);
-            // throw error;
+            if (error.status === 409) {
+                Swal.fire({
+                    position: "top-center",
+                    icon: "error",
+                    title: `${error.response.data}`,
+                });
+            }
         }
     };
 

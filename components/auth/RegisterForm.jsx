@@ -29,8 +29,7 @@ const RegisterForm = () => {
         } catch (error) {
             if (error.status === 409) {
                 Swal.fire({
-                    title: "Registration Failed!",
-                    text: `${error.response.data}🙄`,
+                    title: `${error.response.data}🙄`,
                     icon: "warning",
                 });
             }else{

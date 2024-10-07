@@ -7,12 +7,10 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 
 const useAxios = () => {
-    const { data: session, status } = useSession();
+    const { data: session } = useSession();
     const router = useRouter();
-    console.log(session?.user, status);
 
     useEffect(() => {
-
         // Add a request interceptor
         const requestIntercept = axiosAuth.interceptors.request.use(
             (config) => {

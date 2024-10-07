@@ -23,8 +23,7 @@ const LoginForm = () => {
         } catch (err) {
             if (err.message) {
                 Swal.fire({
-                    title: "Login Failed!",
-                    text: `${err?.message}😟`,
+                    title: `${err?.message}😟`,
                     icon: "error",
                 });
             } else {

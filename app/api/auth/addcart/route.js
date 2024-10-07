@@ -14,11 +14,8 @@ export const POST = async (request) => {
             });
         }
 
-        let decoded;
         try {
-            decoded = jwt.verify(token, process.env.AUTH_SECRET);
-            console.log(decoded)
-
+           const decoded = jwt.verify(token, process.env.AUTH_SECRET);
         } catch (err) {
             if (err.name === 'TokenExpiredError') {
                 return new NextResponse("Forbidden: Access token expired", {
@@ -44,7 +41,10 @@ export const POST = async (request) => {
             userId, productId, title, thumbnail, quantityToBuy, totalPrice
         };
 
-        const isCart = await cartModel.findOne({ productId: payload.productId });
+        const isCart = await cartModel.findOne({
+            userId: payload.userId,
+            productId: payload.productId
+        });
         if (!isCart) {
             await cartModel.create(payload);
 
