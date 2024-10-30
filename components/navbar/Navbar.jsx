@@ -6,11 +6,14 @@ import NavList from './NavList';
 import Cart from '../cart/Cart';
 import { auth } from '@/auth';
 import Account from '../account/Account';
+import { getCartByUserId } from '@/queries/product-queries';
 
 const Navbar = async ({ sideBar }) => {
     const session = await auth();
     const user = session?.user;
-    // console.log(session)
+    const carts = await getCartByUserId(user?.userId);
+    const totalPrice = carts.reduce((total, cart) => total + cart.totalPrice, 0).toFixed(2);
+
     return (
         <div className='font-poppins relative z-50 flex justify-between items-center py-4 lg:mx-8'>
             <div className='flex gap-6 items-center text-gray-600'>
@@ -36,7 +39,7 @@ const Navbar = async ({ sideBar }) => {
                             <Link href="/about">About</Link>
                             <Link href="/contact">Contact</Link>
 
-                            <Cart />
+                            <Cart cartLength={carts?.length} totalPrice={totalPrice}/>
 
                             {
                                 user ? (<Account user={user} />) : (
@@ -46,7 +49,7 @@ const Navbar = async ({ sideBar }) => {
                         </div>
 
                         <div className="lg:hidden flex items-center gap-6">
-                            <Cart />
+                            <Cart cartLength={carts?.length} totalPrice={totalPrice} />
                             <NavList />
                         </div>
                     </>

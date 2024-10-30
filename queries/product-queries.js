@@ -1,6 +1,7 @@
 import { replaceMongoIdInArray, replaceMongoIdInObject } from "@/utils/data-utils";
 import connectMongo from "@/dbConnect/connectMongo";
 import productModel from "@/models/product-model";
+import cartModel from "@/models/cart-model";
 
 const getProducts = async () => {
     await connectMongo();
@@ -54,7 +55,6 @@ const getPerPageProducts = async (title, query, page) => {
 
 };
 
-
 const getProductById = async (productId) => {
     await connectMongo();
     try {
@@ -65,8 +65,20 @@ const getProductById = async (productId) => {
     }
 };
 
+const getCartByUserId = async (id) => {
+    await connectMongo();
+    try {
+        const carts = await cartModel.find();
+        const myCarts = carts.filter(cart => cart.userId.toString() === id);
+        return myCarts;
+    } catch (err) {
+        throw err;
+    }
+};
+
 export {
     getProducts,
     getProductById,
-    getPerPageProducts
+    getPerPageProducts,
+    getCartByUserId
 }

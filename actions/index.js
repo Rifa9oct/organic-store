@@ -1,6 +1,7 @@
 "use server"
 
 import { signIn } from "@/auth";
+import { revalidatePath } from "next/cache";
 
 export async function login(formData) {
     try {
@@ -17,4 +18,9 @@ export async function login(formData) {
             throw error;
         }
     }
+}
+
+export async function customRevalidatePath() {
+    revalidatePath("/");
+    return { status: 200 };
 }

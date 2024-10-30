@@ -54,9 +54,11 @@ const Details = async ({ product }) => {
                         </p>
                     </div>
                     <div className="font-poppins flex items-baseline mb-1 space-x-2 font-roboto mt-4">
-                        <p className="text-xl text-primary font-semibold">£19.00 </p>
+                        {
+                            product.discount > 0 && <span className="text-lg text-gray-400 line-through font-semibold">£{product.discount} </span>
+                        }
+                        <p className="text-xl text-primary font-semibold">£{product.price} </p>
                         <span className="text-gray-600">+ Free Shipping</span>
-                        {/* <p className="text-base text-gray-400 line-through">${product?.discount}</p> */}
                     </div>
 
                     <p className="font-poppins mt-4 text-gray-600">{product.description.slice(0, 180)}...</p>
@@ -69,8 +71,8 @@ const Details = async ({ product }) => {
                     <div className="font-poppins mt-6 flex gap-3 border-b border-gray-200 pb-5 pt-5">
                         <div>
                             <AddToCart
-                                userId = {session?.user?.userId}
-                                product = {product}
+                                userId={session?.user?.userId}
+                                product={product}
                             />
                         </div>
 

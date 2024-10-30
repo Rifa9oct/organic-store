@@ -1,5 +1,6 @@
 "use client"
 
+import { customRevalidatePath } from "@/actions";
 import useAxios from "@/hooks/useAxios";
 import { useSession } from "next-auth/react";
 import { useSearchParams, useRouter } from "next/navigation";
@@ -46,15 +47,18 @@ const AddToCart = ({ userId, product }) => {
             const res = await axiosAuth.post("/api/auth/addcart", payload);
 
             if (res.status === 201) {
-                Swal.fire({
-                    position: "top-center",
-                    icon: "success",
-                    title: "Successfully added to the cart.",
-                    showConfirmButton: false,
-                    timer: 1500
-                });
-            }
+                const res = await customRevalidatePath();
 
+                if (res.status === 200) {
+                    Swal.fire({
+                        position: "top-center",
+                        icon: "success",
+                        title: "Successfully added to the cart.",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            }
         } catch (error) {
             if (error.status === 409) {
                 Swal.fire({

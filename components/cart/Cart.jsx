@@ -8,8 +8,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { RxCrossCircled } from "react-icons/rx";
 
-
-const Cart = () => {
+const Cart = ({cartLength, totalPrice}) => {
     const [show, setShow] = useState(false);
 
     const [drawerSize, setDrawerSize] = useState(520);
@@ -51,11 +50,11 @@ const Cart = () => {
                 className='relative'
             >
                 <div className='flex items-center gap-2 text-lime-500 cursor-pointer'>
-                    <span className='font-medium'>£0.00</span>
+                    <span className='font-medium'>£{totalPrice}</span>
                     <TiShoppingCart className='text-2xl' />
                     <div
                         className="absolute -right-3 -top-[6px] w-5 h-5 rounded-full flex items-center justify-center bg-lime-500 font-bold text-black text-xs">
-                        0
+                        {cartLength}
                     </div>
                 </div>
             </div>
