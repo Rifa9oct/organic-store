@@ -12,7 +12,6 @@ const Navbar = async ({ sideBar }) => {
     const session = await auth();
     const user = session?.user;
     const carts = await getCartByUserId(user?.userId);
-    const totalPrice = carts.reduce((total, cart) => total + cart.totalPrice, 0).toFixed(2);
 
     return (
         <div className='font-poppins relative z-50 flex justify-between items-center py-4 lg:mx-8'>
@@ -39,7 +38,7 @@ const Navbar = async ({ sideBar }) => {
                             <Link href="/about">About</Link>
                             <Link href="/contact">Contact</Link>
 
-                            <Cart cartLength={carts?.length} totalPrice={totalPrice}/>
+                            <Cart carts={carts}/>
 
                             {
                                 user ? (<Account user={user} />) : (
@@ -49,7 +48,7 @@ const Navbar = async ({ sideBar }) => {
                         </div>
 
                         <div className="lg:hidden flex items-center gap-6">
-                            <Cart cartLength={carts?.length} totalPrice={totalPrice} />
+                            <Cart carts={carts} />
                             <NavList />
                         </div>
                     </>

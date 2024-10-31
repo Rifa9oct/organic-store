@@ -7,11 +7,13 @@ import { RxCross2 } from "react-icons/rx";
 import Link from 'next/link';
 import Image from 'next/image';
 import { RxCrossCircled } from "react-icons/rx";
+import DeleteCart from '../action-button/DeleteCart';
 
-const Cart = ({cartLength, totalPrice}) => {
+const Cart = ({ carts }) => {
     const [show, setShow] = useState(false);
-
     const [drawerSize, setDrawerSize] = useState(520);
+
+    const totalPrice = carts?.reduce((total, cart) => total + cart.totalPrice, 0).toFixed(2);
 
     useEffect(() => {
         const updateDrawerSize = () => {
@@ -54,7 +56,7 @@ const Cart = ({cartLength, totalPrice}) => {
                     <TiShoppingCart className='text-2xl' />
                     <div
                         className="absolute -right-3 -top-[6px] w-5 h-5 rounded-full flex items-center justify-center bg-lime-500 font-bold text-black text-xs">
-                        {cartLength}
+                        {carts.length}
                     </div>
                 </div>
             </div>
@@ -79,23 +81,36 @@ const Cart = ({cartLength, totalPrice}) => {
                                 </div>
 
                                 <div className='h-screen-minus overflow-y-auto'>
-                                    {/* <h2 className='text-gray-500'>No products in the cart.</h2> */}
+                                    {
+                                        carts?.length > 0 ? (
+                                            <>
+                                                {
+                                                    carts?.map(cart => (
+                                                        <div key={cart.id} className='flex items-center justify-between'>
+                                                            <div className='flex items-center gap-4 p-6'>
+                                                                <Image src={cart.thumbnail} width={64} height={64} alt='product' className='border-2 p-1' />
+                                                                <div className='text-gray-600'>
+                                                                    <h3>{cart.title}</h3>
+                                                                    <h3>{cart.quantityToBuy} × £{cart.totalPrice}</h3>
+                                                                </div>
+                                                            </div>
 
-                                    <div className='flex items-center justify-between'>
-                                        <div className='flex items-center gap-4 p-6'>
-                                            <Image src="/grocery1.png" width={64} height={64} alt='product' />
-                                            <div className='text-gray-600'>
-                                                <h3>Hand Sanitizer</h3>
-                                                <h3>1 × £15.00</h3>
+                                                           <DeleteCart productId={cart.productId}/>
+                                                        </div>
+                                                    ))
+                                                }
+                                            </>
+                                        ) : (
+                                            <div className='flex justify-center items-center h-screen-minus'>
+                                                <h2 className='text-gray-500 text-xl'>No products in the cart.</h2>
                                             </div>
-                                        </div>
-                                        <p className='mr-5'>< RxCrossCircled className='text-2xl text-gray-400' /></p>
-                                    </div>
+                                        )
+                                    }
                                 </div>
 
                                 <div className='flex justify-between p-5 text-gray-600 py-3 border-y-2'>
                                     <h3>Subtotal</h3>
-                                    <h3>£15.00</h3>
+                                    <h3>£{totalPrice}</h3>
                                 </div>
 
                                 <div className='m-5'>
@@ -117,10 +132,10 @@ const Cart = ({cartLength, totalPrice}) => {
                                 </div>
                             </div>
                         </Drawer>
-                    </div>
+                    </div >
                 )
             }
-        </div>
+        </div >
     );
 };
 

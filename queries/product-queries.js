@@ -1,7 +1,8 @@
-import { replaceMongoIdInArray, replaceMongoIdInObject } from "@/utils/data-utils";
+import { replaceCartObjectId, replaceMongoIdInArray, replaceMongoIdInObject } from "@/utils/data-utils";
 import connectMongo from "@/dbConnect/connectMongo";
 import productModel from "@/models/product-model";
 import cartModel from "@/models/cart-model";
+import { revalidatePath } from "next/cache";
 
 const getProducts = async () => {
     await connectMongo();
@@ -70,15 +71,28 @@ const getCartByUserId = async (id) => {
     try {
         const carts = await cartModel.find();
         const myCarts = carts.filter(cart => cart.userId.toString() === id);
-        return myCarts;
+        return replaceCartObjectId(myCarts);
     } catch (err) {
         throw err;
     }
 };
 
+const getDeleteCart = async (productId) => {
+    await connectMongo();
+    try {
+        await cartModel.findOneAndDelete({ productId: productId });
+
+        revalidatePath('/');
+        return { status: 200, message: "Your cart deleted successfully!" };
+    } catch (err) {
+        throw err;
+    }
+}
+
 export {
     getProducts,
     getProductById,
     getPerPageProducts,
-    getCartByUserId
+    getCartByUserId,
+    getDeleteCart
 }
