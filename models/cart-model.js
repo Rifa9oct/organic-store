@@ -18,6 +18,10 @@ const cartSchema = new Schema({
         required: true,
         type: String
     },
+    price: {
+        required: true,
+        type: Number
+    },
     quantityToBuy: {
         required: true,
         type: Number

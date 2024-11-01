@@ -6,7 +6,6 @@ import { TiShoppingCart } from 'react-icons/ti';
 import { RxCross2 } from "react-icons/rx";
 import Link from 'next/link';
 import Image from 'next/image';
-import { RxCrossCircled } from "react-icons/rx";
 import DeleteCart from '../action-button/DeleteCart';
 
 const Cart = ({ carts }) => {
@@ -91,7 +90,7 @@ const Cart = ({ carts }) => {
                                                                 <Image src={cart.thumbnail} width={64} height={64} alt='product' className='border-2 p-1' />
                                                                 <div className='text-gray-600'>
                                                                     <h3>{cart.title}</h3>
-                                                                    <h3>{cart.quantityToBuy} × £{cart.totalPrice}</h3>
+                                                                    <h3>{cart.quantityToBuy} × £{cart.price}</h3>
                                                                 </div>
                                                             </div>
 

@@ -37,7 +37,7 @@ const AddToCart = ({ userId, product }) => {
     };
 
     const payload = {
-        userId, productId, title, thumbnail,
+        userId, productId, title, thumbnail, price,
         quantityToBuy: `${parseInt(quantity)}`,
         totalPrice: `${parseInt(quantity) * price}`
     }

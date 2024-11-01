@@ -1,3 +1,5 @@
+"use client"
+
 import { deleteCart } from "@/actions";
 import { RxCrossCircled } from "react-icons/rx";
 import Swal from "sweetalert2";

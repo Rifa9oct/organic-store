@@ -89,10 +89,35 @@ const getDeleteCart = async (productId) => {
     }
 }
 
+const getUpdateCart = async (productId, newQuantity) => {
+    await connectMongo();
+    try {
+        if (newQuantity) {
+            const product = await cartModel.findOne({ productId: productId });
+            if (product) {
+                product.quantityToBuy = newQuantity;
+                product.totalPrice = newQuantity * product.price;
+                await product.save();
+            }
+        } else {
+            await cartModel.findOneAndDelete({ productId: productId });
+            console.log("product", productId);
+        }
+
+        revalidatePath('/');
+        return { status: 200, message: "Your cart updated successfully!" };
+    } catch (err) {
+        throw err;
+    }
+}
+
+
+
 export {
     getProducts,
     getProductById,
     getPerPageProducts,
     getCartByUserId,
-    getDeleteCart
+    getDeleteCart,
+    getUpdateCart
 }

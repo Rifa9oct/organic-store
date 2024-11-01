@@ -1,7 +1,7 @@
 "use server"
 
 import { signIn } from "@/auth";
-import { getDeleteCart } from "@/queries/product-queries";
+import { getDeleteCart, getUpdateCart } from "@/queries/product-queries";
 import { revalidatePath } from "next/cache";
 
 export async function login(formData) {
@@ -29,6 +29,15 @@ export async function customRevalidatePath() {
 export async function deleteCart(id) {
     try {
         const res = await getDeleteCart(id);
+        return res;
+    } catch (error) {
+        throw error;
+    }
+}
+
+export async function updateCart(productId, newQuantity) {
+    try {
+        const res = await getUpdateCart(productId, newQuantity);
         return res;
     } catch (error) {
         throw error;
