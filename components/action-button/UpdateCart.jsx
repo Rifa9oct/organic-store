@@ -42,7 +42,7 @@ const UpdateCart = () => {
                 onClick={handleClick}
                 disabled={!active}
                 type="submit"
-                className={`${active ? "bg-lime-600 hover:bg-lime-500 text-white" : "bg-gray-300 text-gray-500"} font-poppins w-[130px] lg:w-[160px] text-sm lg:text-base uppercase py-2 border rounded-md transition font-medium m-4`}>Update cart
+                className={`${active ? "bg-lime-600 hover:bg-lime-500 text-white" : "bg-gray-300 text-gray-400"} font-poppins w-[130px] lg:w-[160px] text-sm lg:text-base uppercase py-2 border rounded-md transition font-medium m-4`}>Update cart
             </button>
         </>
     );

@@ -10,11 +10,13 @@ import Share from "../action-button/Share";
 import Related from "./Related";
 import Tabs from "./tabs/Tabs";
 import Description from "./tabs/Description";
-import Reviews from "./tabs/ReviewForm";
+import Reviews from "./tabs/Reviews";
 import { auth } from "@/auth";
+import { getReviews } from "@/queries/product-queries";
 
 const Details = async ({ product }) => {
     const session = await auth();
+    const reviews = await getReviews();
 
     return (
         <>
@@ -102,7 +104,7 @@ const Details = async ({ product }) => {
                 <Tabs
                     config={[
                         { header: "Description", component: <Description des={product.description} /> },
-                        { header: "Reviews", component: <Reviews /> },
+                        { header: `Reviews (${reviews.length})`, component: <Reviews productId={product?.id}/> },
                     ]}
                 />
             </div>

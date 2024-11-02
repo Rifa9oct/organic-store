@@ -3,6 +3,7 @@ import connectMongo from "@/dbConnect/connectMongo";
 import productModel from "@/models/product-model";
 import cartModel from "@/models/cart-model";
 import { revalidatePath } from "next/cache";
+import reviewModel from "@/models/review-model";
 
 const getProducts = async () => {
     await connectMongo();
@@ -111,6 +112,11 @@ const getUpdateCart = async (productId, newQuantity) => {
     }
 }
 
+const getReviews = async () => {
+    await connectMongo();
+    let reviews = await reviewModel.find();
+    return replaceCartObjectId(reviews);
+};
 
 
 export {
@@ -119,5 +125,6 @@ export {
     getPerPageProducts,
     getCartByUserId,
     getDeleteCart,
-    getUpdateCart
+    getUpdateCart,
+    getReviews
 }

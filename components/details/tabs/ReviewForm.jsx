@@ -1,46 +1,78 @@
-import { MdOutlineStarPurple500 } from "react-icons/md";
+"use client"
 
-const ReviewForm = () => {
+import { customRevalidatePath } from "@/actions";
+import useAxios from "@/hooks/useAxios";
+import { useForm } from "react-hook-form";
+import { MdError } from "react-icons/md";
+import Swal from "sweetalert2";
+
+const ReviewForm = ({ userId, productId, reviews }) => {
+    const { axiosAuth } = useAxios();
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
+    const isAddReview = reviews.find(review => review.productId === productId);
+
+    const onSubmit = async (data) => {
+        if (!userId) {
+            router.push("/login");
+        } else {
+            try {
+                const payload = { productId, userId, name: data.name, email: data.email, message: data.message};
+
+                const res = await axiosAuth.post("/api/auth/review", payload);
+                console.log(res)
+
+                if (res.status === 201) {
+                    const res = await customRevalidatePath();
+
+                    if (res.status === 200) {
+                        Swal.fire({
+                            title: "Thank you!!",
+                            position: "top-center",
+                            icon: "success",
+                            text: "Your review has been successfully added.",
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    }
+                }
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        reset();
+    }
+
     return (
-        <div className="mb-20 font-poppins">
-            <h1 className="text-xl">Please, Give your review!</h1>
-            <div className="lg:w-[1170px] p-[26px] border-2 mt-5">
-                <h1 className="text-xl text-gray-600">Review of “Assorted Coffee”</h1>
-                <p className="text-gray-500 mt-2">Your email address will not be published. Required fields are marked *</p>
+        <form onSubmit={handleSubmit(onSubmit)} method="post" autoComplete="off">
+            <textarea name="message" {...register("message", { required: true })}
+                id="message" placeholder="write here..." cols="45" rows="3" className="outline-lime-500 w-full text-gray-500 p-5 shadow"></textarea>
+            {errors.message && <span className="text-sm mt-1 text-red-500"><MdError className="text-lg inline" /> This field is required.</span>}
 
-                <div className="flex gap-1 items-center">
-                    <h3 className="text-lg my-2 text-gray-700">Your rating *</h3>
-                    <div className="flex gap-1 text-yellow-400">
-                        <span><MdOutlineStarPurple500 /></span>
-                        <span><MdOutlineStarPurple500 /></span>
-                        <span><MdOutlineStarPurple500 /></span>
-                        <span><MdOutlineStarPurple500 /></span>
-                        <span><MdOutlineStarPurple500 /></span>
-                    </div>
+            <div className="flex gap-10" >
+                <div className="w-[550px]">
+                    <label htmlFor="name" className="text-lg my-2 text-gray-700 block">Name *</label>
+                    <input type="text" name="name"
+                        {...register("name", { required: true })}
+                        placeholder="youre name" className="w-full shadow p-3 mb-2 outline-lime-500" />
+                    {errors.name && <span className="text-sm mt-1 text-red-500"><MdError className="text-lg inline" /> Name field is required.</span>}
                 </div>
 
-                <h3 className="text-lg my-2 text-gray-700">Your review *</h3>
-                <textarea name="message" id="message" placeholder="write here..." cols="45" rows="3" className="outline-lime-500 w-full text-gray-500 p-5 shadow"></textarea>
-
-                <div className="flex gap-10" >
-                    <div className="w-[550px]">
-                        <label htmlFor="name" className="text-lg my-2 text-gray-700 block">Name *</label>
-                        <input type="text" placeholder="youre name" className="w-full shadow p-3 outline-lime-500" />
-                    </div>
-                    <div className="w-[550px]">
-                        <label htmlFor="email" className="text-lg my-2 text-gray-700 block">Email *</label>
-                        <input type="text" placeholder="youremail@domain.com" className="w-full shadow p-3 outline-lime-500" />
-                    </div>
+                <div className="w-[550px]">
+                    <label htmlFor="email" className="text-lg my-2 text-gray-700 block">Email *</label>
+                    <input type="text" name="email"
+                        {...register("email", { required: true })}
+                        placeholder="youremail@domain.com" className="w-full shadow p-3 mb-2 outline-lime-500" />
+                    {errors.email && <span className="text-sm mt-1 text-red-500"><MdError className="text-lg inline" /> Email field is required.</span>}
                 </div>
-
-                <div className="flex gap-2 mt-3 text-gray-500">
-                    <input type="checkbox" name="" id="" />
-                    <p>Save my name, email, and website in this browser for the next time I comment.</p>
-                </div>
-
-                <button className="mt-4 bg-lime-600 hover:bg-lime-500 text-white px-8 py-3 rounded-md">Submit</button>
             </div>
-        </div>
+
+            <div className="flex gap-2 mt-3 text-gray-500">
+                <input type="checkbox" name="" id="" />
+                <p>Save my name, email, and website in this browser for the next time I comment.</p>
+            </div>
+
+            <button type="submit" disabled={isAddReview} className={`${isAddReview? "bg-gray-300 text-gray-400  font-bold":"bg-lime-600 hover:bg-lime-500 text-white"} mt-4 px-8 py-3 rounded-md`}>Submit</button>
+        </form>
     );
 };
 
