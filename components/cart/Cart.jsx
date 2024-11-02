@@ -94,7 +94,7 @@ const Cart = ({ carts }) => {
                                                                 </div>
                                                             </div>
 
-                                                           <DeleteCart productId={cart.productId}/>
+                                                            <DeleteCart productId={cart.productId} />
                                                         </div>
                                                     ))
                                                 }
@@ -107,20 +107,25 @@ const Cart = ({ carts }) => {
                                     }
                                 </div>
 
-                                <div className='flex justify-between p-5 text-gray-600 py-3 border-y-2'>
-                                    <h3>Subtotal</h3>
-                                    <h3>£{totalPrice}</h3>
-                                </div>
+                                {
+                                    carts.length !== 0 && (
+                                        <>
+                                            <div className='flex justify-between p-5 text-gray-600 py-3 border-y-2'>
+                                                <h3>Subtotal</h3>
+                                                <h3>£{totalPrice}</h3>
+                                            </div>
 
-                                <div className='m-5'>
-                                    <Link href="/cart">
-                                        <button
-                                            onClick={() => setShow(false)}
-                                            className='uppercase rounded-md hover:bg-lime-500 bg-lime-600 py-3 w-full text-white transition'
-                                        >View Cart</button>
-                                    </Link>
-                                </div>
-
+                                            <div className='m-5'>
+                                                <Link href="/cart">
+                                                    <button
+                                                        onClick={() => setShow(false)}
+                                                        className='uppercase rounded-md hover:bg-lime-500 bg-lime-600 py-3 w-full text-white transition'
+                                                    >View Cart</button>
+                                                </Link>
+                                            </div>
+                                        </>
+                                    )
+                                }
                                 <div className='m-5'>
                                     <Link href="/shop">
                                         <button
@@ -129,8 +134,8 @@ const Cart = ({ carts }) => {
                                         >Continue Shopping</button>
                                     </Link>
                                 </div>
-                            </div>
-                        </Drawer>
+                            </div >
+                        </Drawer >
                     </div >
                 )
             }
