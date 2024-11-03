@@ -1,7 +1,8 @@
+
 import Link from "next/link";
 
-const RightSidebar = () => {
-
+const RightSidebar =  ({completeCheckout,carts}) => {
+   
     return (
         <div className="col-span-full lg:col-span-4 m-6 lg:m-0 border-2 p-[28px] rounded">
             <h3 className="text-[20px] font-semibold pb-[14px]">Your Order</h3>
@@ -11,18 +12,22 @@ const RightSidebar = () => {
                 <p>Subtotal</p>
             </div>
 
-            <div className="flex justify-between text-gray-600 font-poppins pt-[14px] pb-[14px] border-gray-300 border-b">
-                <h5>Assorted Coffee × 1</h5>
+            {
+                carts?.map(item => (
+                    <div key={item.id} className="flex justify-between text-gray-600 font-poppins pt-[14px] pb-[14px] border-gray-300 border-b">
+                        <h5>{item.title} × {item.quantityToBuy}</h5>
+                        <p>£{item.totalPrice}</p>
+                    </div>
+                ))
+            }
+
+            <div className="font-bold flex justify-between font-poppins pt-[14px] pb-[14px] border-gray-300 border-b">
+                <h5 className="text-lime-500">Subtotal</h5>
                 <p>£35.00</p>
             </div>
 
-            <div className="flex justify-between text-gray-600 font-poppins pt-[14px] pb-[14px] border-gray-300 border-b">
-                <h5>Subtotal</h5>
-                <p>£35.00</p>
-            </div>
-
-            <div className="flex justify-between text-gray-600 font-poppins pt-[14px] pb-[14px] border-gray-300 border-b">
-                <p>Total</p>
+            <div className="font-bold flex justify-between font-poppins pt-[14px] pb-[14px] border-gray-300 border-b">
+                <p className="text-lime-500">Total</p>
                 <p>£35.00</p>
             </div>
 
@@ -33,8 +38,8 @@ const RightSidebar = () => {
                     className="text-lime-500 font-semibold">terms & conditions</Link></label>
             </div>
 
-            <button type="submit"
-                className="block font-poppins uppercase w-full py-3 px-4 text-center text-white bg-lime-600 border rounded-md hover:bg-lime-500 transition font-medium">Place order
+            <button type="submit" disabled={completeCheckout}
+                className={`${completeCheckout? "bg-gray-300 text-gray-400":"hover:bg-lime-500 bg-lime-600 text-white"} block font-poppins uppercase w-full py-3 px-4 text-center border rounded-md transition font-medium`}>Place order
             </button>
         </div>
     );

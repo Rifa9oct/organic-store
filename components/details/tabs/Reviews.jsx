@@ -5,7 +5,6 @@ import { getReviews } from "@/queries/product-queries";
 
 const Reviews = async ({ productId }) => {
     const session = await auth();
-    const userId = session?.user?.userId;
     const reviews = await getReviews();
 
     return (
@@ -28,8 +27,8 @@ const Reviews = async ({ productId }) => {
 
                 <h3 className="text-lg my-2 text-gray-700">Your review *</h3>
                 <ReviewForm
+                    user={session?.user}
                     productId={productId}
-                    userId={userId}
                     reviews={reviews}
                 />
             </div>

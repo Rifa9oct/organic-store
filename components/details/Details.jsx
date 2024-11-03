@@ -78,7 +78,7 @@ const Details = async ({ product }) => {
                             />
                         </div>
 
-                        <Checkout />
+                        <Checkout userId={session?.user?.userId} product={product} />
                     </div>
 
                     <div className="font-poppins flex items-center gap-3 mt-4">
@@ -104,7 +104,7 @@ const Details = async ({ product }) => {
                 <Tabs
                     config={[
                         { header: "Description", component: <Description des={product.description} /> },
-                        { header: `Reviews (${reviews.length})`, component: <Reviews productId={product?.id}/> },
+                        { header: `Reviews (${reviews.length})`, component: <Reviews  productId={product?.id}/> },
                     ]}
                 />
             </div>

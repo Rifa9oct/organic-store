@@ -6,17 +6,17 @@ import { useForm } from "react-hook-form";
 import { MdError } from "react-icons/md";
 import Swal from "sweetalert2";
 
-const ReviewForm = ({ userId, productId, reviews }) => {
+const ReviewForm = ({ user, productId, reviews }) => {
     const { axiosAuth } = useAxios();
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
-    const isAddReview = reviews.find(review => review.productId === productId);
+    const isAddReview = reviews.find(review => (review.productId === productId) && (review.userId === user?.userId));
 
     const onSubmit = async (data) => {
-        if (!userId) {
+        if (!user) {
             router.push("/login");
         } else {
             try {
-                const payload = { productId, userId, name: data.name, email: data.email, message: data.message};
+                const payload = { productId, userId:user?.userId, name: data.name, email: data.email, message: data.message};
 
                 const res = await axiosAuth.post("/api/auth/review", payload);
                 console.log(res)
@@ -51,7 +51,7 @@ const ReviewForm = ({ userId, productId, reviews }) => {
             <div className="flex gap-10" >
                 <div className="w-[550px]">
                     <label htmlFor="name" className="text-lg my-2 text-gray-700 block">Name *</label>
-                    <input type="text" name="name"
+                    <input type="text" name="name" defaultValue={`${isAddReview? "":user?.name}`}
                         {...register("name", { required: true })}
                         placeholder="youre name" className="w-full shadow p-3 mb-2 outline-lime-500" />
                     {errors.name && <span className="text-sm mt-1 text-red-500"><MdError className="text-lg inline" /> Name field is required.</span>}
@@ -59,7 +59,7 @@ const ReviewForm = ({ userId, productId, reviews }) => {
 
                 <div className="w-[550px]">
                     <label htmlFor="email" className="text-lg my-2 text-gray-700 block">Email *</label>
-                    <input type="text" name="email"
+                    <input type="text" name="email" defaultValue={`${isAddReview? "":user?.email}`}
                         {...register("email", { required: true })}
                         placeholder="youremail@domain.com" className="w-full shadow p-3 mb-2 outline-lime-500" />
                     {errors.email && <span className="text-sm mt-1 text-red-500"><MdError className="text-lg inline" /> Email field is required.</span>}

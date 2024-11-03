@@ -7,10 +7,13 @@ import { RxCross2 } from "react-icons/rx";
 import Link from 'next/link';
 import Image from 'next/image';
 import DeleteCart from '../action-button/DeleteCart';
+import { usePathname, useRouter } from 'next/navigation';
 
 const Cart = ({ carts }) => {
     const [show, setShow] = useState(false);
     const [drawerSize, setDrawerSize] = useState(520);
+    const router = useRouter();
+    const pathname = usePathname();
 
     const totalPrice = carts?.reduce((total, cart) => total + cart.totalPrice, 0).toFixed(2);
 
@@ -44,10 +47,19 @@ const Cart = ({ carts }) => {
 
     }, [show]);
 
+    const toggleDrawer = () => {
+        if (pathname.includes('/cart') || pathname.includes('/checkout')) {
+            setShow(false);
+            router.push("/cart");
+        } else {
+            setShow(true);
+        }
+    };
+
     return (
         <div>
             <div
-                onClick={() => setShow(true)}
+                onClick={toggleDrawer}
                 className='relative'
             >
                 <div className='flex items-center gap-2 text-lime-500 cursor-pointer'>
@@ -127,11 +139,11 @@ const Cart = ({ carts }) => {
                                     )
                                 }
                                 <div className='m-5'>
-                                    <Link href="/shop">
+                                    <Link href={`${carts.length === 0 ? "/shop" : "/checkout"}`}>
                                         <button
                                             onClick={() => setShow(false)}
                                             className='uppercase rounded-md hover:bg-lime-500 bg-lime-600 py-3 w-full text-white transition'
-                                        >Continue Shopping</button>
+                                        >{carts.length === 0 ? "Continue Shopping" : "Checkout"}</button>
                                     </Link>
                                 </div>
                             </div >
