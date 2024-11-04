@@ -1,31 +1,12 @@
 import { NextResponse } from "next/server";
 import connectMongo from "@/dbConnect/connectMongo";
 import reviewModel from "@/models/review-model";
-import jwt from 'jsonwebtoken';
+import { authenticateRequest } from "@/utils/auth-utils";
 
 export const POST = async (request) => {
     try {
-        const authHeader = request.headers.get('authorization');
-        const token = authHeader && authHeader.split(' ')[1];
-
-        if (!token) {
-            return new NextResponse("Unauthorized: Access token is required", {
-                status: 401,
-            });
-        }
-
-        try {
-            const decoded = jwt.verify(token, process.env.AUTH_SECRET);
-        } catch (err) {
-            if (err.name === 'TokenExpiredError') {
-                return new NextResponse("Forbidden: Access token expired", {
-                    status: 403,
-                });
-            }
-            return new NextResponse("Unauthorized: Invalid token", {
-                status: 401,
-            });
-        }
+        const { error } = authenticateRequest(request);
+        if (error) return error;
 
         const { productId, userId, name, email, message } = await request.json();
 

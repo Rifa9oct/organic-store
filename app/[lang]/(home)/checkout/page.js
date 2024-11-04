@@ -16,6 +16,7 @@ const page = async () => {
         <div className="bg-[#F8F6F3]">
             <div className="max-w-[1320px] mx-auto pt-[50px] pb-20">
                 <h1 className="text-[30px] font-bold border-b-[3px] pb-2 mb-10 border-b-lime-500 mx-6 lg:mx-0">Checkout</h1>
+                
                 <CheckoutForm user={user}  carts={carts}/>
             </div>
         </div>

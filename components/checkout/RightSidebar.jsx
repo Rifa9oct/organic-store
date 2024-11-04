@@ -1,8 +1,8 @@
 
 import Link from "next/link";
 
-const RightSidebar =  ({completeCheckout,carts}) => {
-   
+const RightSidebar =  ({completeCheckout, carts, totalPrice}) => {
+    
     return (
         <div className="col-span-full lg:col-span-4 m-6 lg:m-0 border-2 p-[28px] rounded">
             <h3 className="text-[20px] font-semibold pb-[14px]">Your Order</h3>
@@ -23,12 +23,12 @@ const RightSidebar =  ({completeCheckout,carts}) => {
 
             <div className="font-bold flex justify-between font-poppins pt-[14px] pb-[14px] border-gray-300 border-b">
                 <h5 className="text-lime-500">Subtotal</h5>
-                <p>£35.00</p>
+                <p>£{totalPrice}</p>
             </div>
 
             <div className="font-bold flex justify-between font-poppins pt-[14px] pb-[14px] border-gray-300 border-b">
                 <p className="text-lime-500">Total</p>
-                <p>£35.00</p>
+                <p>£{totalPrice}</p>
             </div>
 
             <div className="flex items-center mb-4 mt-6 font-poppins">

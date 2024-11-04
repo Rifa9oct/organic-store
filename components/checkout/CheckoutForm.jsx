@@ -149,7 +149,11 @@ const CheckoutForm = ({ user, carts }) => {
                     </div>
                 </div>
 
-                <RightSidebar completeCheckout={completeCheckout} carts={carts} />
+                <RightSidebar
+                    completeCheckout={completeCheckout}
+                    carts={carts}
+                    totalPrice={totalPrice}
+                />
             </form>
         </>
     );
