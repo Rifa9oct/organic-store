@@ -1,3 +1,5 @@
+"use client"
+
 import { FacebookShareButton } from "react-share";
 
 const Share = ({id}) => {
