@@ -95,7 +95,7 @@ const Details = async ({ product }) => {
                             <FaInstagram />
                         </Link>
 
-                        <Share />
+                        <Share id={product?.id}/>
                     </div>
                 </div>
             </div>
