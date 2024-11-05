@@ -4,15 +4,28 @@ import { MdError } from "react-icons/md";
 import RightSidebar from "./RightSidebar";
 import { useForm } from "react-hook-form";
 import useAxios from "@/hooks/useAxios";
-import Swal from "sweetalert2";
 import { customRevalidatePath } from "@/actions";
 import { useState } from "react";
+import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 
 const CheckoutForm = ({ user, carts }) => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const { axiosAuth } = useAxios();
     const totalPrice = carts?.reduce((total, cart) => total + cart.totalPrice, 0).toFixed(2);
-    const [completeCheckout, setCompleteCheckout] = useState(false)
+    const [completeCheckout, setCompleteCheckout] = useState(false);
+
+    const searchParams = useSearchParams();
+    const pathname = usePathname();
+    const { replace } = useRouter();
+
+    const params = new URLSearchParams(searchParams);
+
+    if (completeCheckout) {
+        params.set('queryCheckout', "complete");
+    } else {
+        params.delete('queryCheckout');
+    }
+    replace(`${pathname}?${params.toString()}`);
 
     const onSubmit = async (data) => {
         try {
@@ -31,7 +44,8 @@ const CheckoutForm = ({ user, carts }) => {
                     {
                         productId: product.productId,
                         title: product.title,
-                        quantityToBuy: product.quantityToBuy
+                        quantityToBuy: product.quantityToBuy,
+                        price: product.price
                     }
                 )),
                 totalPrice: totalPrice,
@@ -44,15 +58,7 @@ const CheckoutForm = ({ user, carts }) => {
                 const res = await customRevalidatePath();
 
                 if (res.status === 200) {
-                    setDisabled(true)
-                    Swal.fire({
-                        title: "Thank you!!",
-                        position: "top-center",
-                        icon: "success",
-                        text: "You has been successfully checkout your products.",
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
+                    setCompleteCheckout(true)
                 }
             }
         } catch (error) {
@@ -150,7 +156,6 @@ const CheckoutForm = ({ user, carts }) => {
                 </div>
 
                 <RightSidebar
-                    completeCheckout={completeCheckout}
                     carts={carts}
                     totalPrice={totalPrice}
                 />

@@ -30,3 +30,24 @@ export const replaceMongoIdInObject = (obj) => {
         return { ...updatedObj, id: _id.toString() };
     }
 };
+
+export const replaceCheckoutObject = (array) => {
+    const mappedArray = array.map(item => {
+        const { _id, userId, date, __v, $__, _$isNew, ...rest } = item._doc;
+
+        const formattedDate = new Intl.DateTimeFormat('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        }).format(new Date(date));
+
+        return {
+            id: _id.toString(),
+            userId: userId.toString(),
+            date: formattedDate,
+            ...rest
+        };
+    });
+
+    return mappedArray;
+};

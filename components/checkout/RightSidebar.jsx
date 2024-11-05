@@ -1,7 +1,7 @@
 
 import Link from "next/link";
 
-const RightSidebar =  ({completeCheckout, carts, totalPrice}) => {
+const RightSidebar =  ({ carts, totalPrice }) => {
     
     return (
         <div className="col-span-full lg:col-span-4 m-6 lg:m-0 border-2 p-[28px] rounded">
@@ -38,8 +38,8 @@ const RightSidebar =  ({completeCheckout, carts, totalPrice}) => {
                     className="text-lime-500 font-semibold">terms & conditions</Link></label>
             </div>
 
-            <button type="submit" disabled={completeCheckout}
-                className={`${completeCheckout? "bg-gray-300 text-gray-400":"hover:bg-lime-500 bg-lime-600 text-white"} block font-poppins uppercase w-full py-3 px-4 text-center border rounded-md transition font-medium`}>Place order
+            <button type="submit" disabled={carts.length === 0}
+                className={`${carts.length === 0? "bg-gray-300 text-gray-400":"hover:bg-lime-500 bg-lime-600 text-white"} block font-poppins uppercase w-full py-3 px-4 text-center border rounded-md transition font-medium`}>Place order
             </button>
         </div>
     );

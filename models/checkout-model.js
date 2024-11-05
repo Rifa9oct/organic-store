@@ -57,6 +57,10 @@ const checkoutSchema = new Schema({
                 quantityToBuy: {
                     required: true,
                     type: Number
+                },
+                price:{
+                    required: true,
+                    type: Number
                 }
             }
         ]

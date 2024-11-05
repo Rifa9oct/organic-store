@@ -1,9 +1,10 @@
-import { replaceCartObjectId, replaceMongoIdInArray, replaceMongoIdInObject } from "@/utils/data-utils";
+import { replaceCartObjectId, replaceCheckoutObject, replaceMongoIdInArray, replaceMongoIdInObject } from "@/utils/data-utils";
 import connectMongo from "@/dbConnect/connectMongo";
 import productModel from "@/models/product-model";
 import cartModel from "@/models/cart-model";
 import { revalidatePath } from "next/cache";
 import reviewModel from "@/models/review-model";
+import checkoutModel from "@/models/checkout-model";
 
 const getProducts = async () => {
     await connectMongo();
@@ -114,8 +115,14 @@ const getUpdateCart = async (productId, newQuantity) => {
 
 const getReviews = async () => {
     await connectMongo();
-    let reviews = await reviewModel.find();
+    const reviews = await reviewModel.find();
     return replaceCartObjectId(reviews);
+};
+
+const getCheckout = async () => {
+    await connectMongo();
+    const recentCheckout = await checkoutModel.find().sort({ date: -1 }).limit(1);
+    return replaceCheckoutObject(recentCheckout);
 };
 
 
@@ -126,5 +133,6 @@ export {
     getCartByUserId,
     getDeleteCart,
     getUpdateCart,
-    getReviews
+    getReviews,
+    getCheckout
 }

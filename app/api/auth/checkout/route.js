@@ -21,25 +21,14 @@ export const POST = async (request) => {
 
         const payload = { userId, firstName, lastName, company, region, address, district, phoneNo, email, note, buyProducts, totalPrice, date, paymentMethod };
 
-        console.log(payload)
+        await checkoutModel.create(payload);
 
-        const isCheckout = await checkoutModel.findOne({
-            userId: payload.userId,
+        await cartModel.deleteMany({});
+
+        return new NextResponse("A checkout has been completed", {
+            status: 201,
         });
 
-        if (!isCheckout) {
-            await checkoutModel.create(payload);
-
-            await cartModel.deleteMany({});
-
-            return new NextResponse("A checkout has been completed", {
-                status: 201,
-            });
-        } else {
-            return new NextResponse("Already completed the checkout", {
-                status: 409,
-            });
-        }
     } catch (err) {
         console.error("Error during the operation:", err);
         return new NextResponse(err.message, {
