@@ -4,7 +4,7 @@ import { MdError } from "react-icons/md";
 import RightSidebar from "./RightSidebar";
 import { useForm } from "react-hook-form";
 import useAxios from "@/hooks/useAxios";
-import { customRevalidatePath } from "@/actions";
+import { customRevalidatePath, sendEmail } from "@/actions";
 import { useState } from "react";
 import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 
@@ -58,7 +58,8 @@ const CheckoutForm = ({ user, carts }) => {
                 const res = await customRevalidatePath();
 
                 if (res.status === 200) {
-                    setCompleteCheckout(true)
+                    setCompleteCheckout(true);
+                    sendEmail(user);
                 }
             }
         } catch (error) {

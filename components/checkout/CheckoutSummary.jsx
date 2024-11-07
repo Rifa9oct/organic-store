@@ -8,7 +8,7 @@ const CheckoutSummary = async () => {
 
     return (
         <div className="m-6 lg:m-0">
-            <h1 className="font-poppins text-xl text-gray-600 mb-5">Thank you. Your order has been received.</h1>
+            <h1 className="font-poppins text-xl text-gray-600 mb-5">Thank you, Your order has been received. Please check your email.</h1>
 
             <div className="font-poppins grid grid-cols-2 md:flex gap-3 md:gap-6">
                 <div className="pr-6 md:border-r-2 border-dashed border-gray-400 ">
