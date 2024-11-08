@@ -19,9 +19,9 @@ const Details = async ({ product }) => {
     const reviews = await getReviews();
 
     return (
-        <>
-            <div className="grid grid-cols-2 py-16">
-                <div className="relative w-[600px] h-[600px] cursor-zoom-in overflow-hidden">
+        <div className="lg:m-0 mx-8">
+            <div className="grid lg:grid-cols-2 grid-cols-1 py-16">
+                <div className="relative mx-auto md:w-[600px] md:h-[600px] cursor-zoom-in overflow-hidden">
                     <Image src={product.thumbnail} width={600} height={600} alt="product" className="transform transition-transform hover:scale-125" />
 
                     <div className="absolute bg-white rounded-full w-[36px] h-[36px] pt-2 pl-2 top-4 right-4">
@@ -30,7 +30,7 @@ const Details = async ({ product }) => {
                 </div>
 
                 <div>
-                    <h2 className="text-3xl font-bold mb-2">{product.title}</h2>
+                    <h2 className="text-3xl font-bold lg:mt-0 mt-8 mb-2">{product.title}</h2>
                     <div className="font-poppins flex items-center mb-4">
                         <div className="flex gap-1 text-sm text-yellow-400">
                             <span><MdOutlineStarPurple500 /></span>
@@ -110,7 +110,7 @@ const Details = async ({ product }) => {
             </div>
 
             <Related category={product?.category} />
-        </>
+        </div>
     );
 };
 
