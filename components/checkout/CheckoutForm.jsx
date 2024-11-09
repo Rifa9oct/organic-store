@@ -52,6 +52,7 @@ const CheckoutForm = ({ user, carts }) => {
                 date: Date.now(),
                 paymentMethod: "Check payments"
             };
+
             const res = await axiosAuth.post("/api/auth/checkout", payload);
 
             if (res.status === 201) {
@@ -63,7 +64,7 @@ const CheckoutForm = ({ user, carts }) => {
                 }
             }
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
         reset();
     }

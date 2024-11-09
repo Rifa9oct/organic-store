@@ -38,8 +38,8 @@ const AddToCart = ({ userId, product }) => {
 
     const payload = {
         userId, productId, title, thumbnail, price,
-        quantityToBuy: `${parseInt(quantity)}`,
-        totalPrice: `${parseInt(quantity) * price}`
+        quantityToBuy: parseInt(quantity),
+        totalPrice: (parseInt(quantity) * price).toFixed(2)
     }
 
     const addToCart = async () => {

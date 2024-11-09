@@ -1,10 +1,14 @@
 import { FaPhone } from "react-icons/fa6";
 import { IoMdMail } from "react-icons/io";
 import { getCheckout } from "@/queries/product-queries";
+import { auth } from "@/auth";
 
 const CheckoutSummary = async () => {
-    const checkoutSummary = await getCheckout();
+    const session = await auth();
+    const user = session?.user;
+    const checkoutSummary = await getCheckout(user?.email);
     const buyProducts = checkoutSummary[0]?.buyProducts;
+    console.log(checkoutSummary[0])
 
     return (
         <div className="m-6 lg:m-0">
@@ -52,7 +56,7 @@ const CheckoutSummary = async () => {
 
                         {
                             buyProducts?.map(product => (
-                                <p key={product._id.toString()} className="p-3 md:p-4 border-b-2">£{product.price * product.quantityToBuy}</p>
+                                <p key={product._id.toString()} className="p-3 md:p-4 border-b-2">£{(product.price * product.quantityToBuy).toFixed(2)}</p>
                             ))
                         }
 

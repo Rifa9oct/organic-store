@@ -13,8 +13,8 @@ const Navbar = async ({ sideBar }) => {
     const session = await auth();
     const getUser = await getUserByEmail(session?.user?.email);
     const user = getUser[0];
-    const carts = await getCartByUserId(user?.userId);
-
+    const carts = await getCartByUserId(user?.id);
+    
     return (
         <div className='font-poppins relative z-50 flex justify-between items-center py-4 lg:mx-8'>
             <div className='flex gap-6 items-center text-gray-600'>

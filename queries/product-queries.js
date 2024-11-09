@@ -119,12 +119,17 @@ const getReviews = async () => {
     return replaceCartObjectId(reviews);
 };
 
-const getCheckout = async () => {
+const getCheckout = async (email) => {
     await connectMongo();
-    const recentCheckout = await checkoutModel.find().sort({ date: -1 }).limit(1);
+    const recentCheckout = await checkoutModel.find({email}).sort({ date: -1 }).limit(1);
     return replaceCheckoutObject(recentCheckout);
 };
 
+const getCheckoutProducts = async (email) => {
+    await connectMongo();
+    const recentCheckoutProducts = await checkoutModel.find({email}).sort({ date: -1 });
+    return replaceCheckoutObject(recentCheckoutProducts);
+};
 
 export {
     getProducts,
@@ -134,5 +139,6 @@ export {
     getDeleteCart,
     getUpdateCart,
     getReviews,
-    getCheckout
+    getCheckout,
+    getCheckoutProducts
 }
