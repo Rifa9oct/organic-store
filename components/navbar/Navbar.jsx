@@ -7,10 +7,12 @@ import Cart from '../cart/Cart';
 import { auth } from '@/auth';
 import Account from '../account/Account';
 import { getCartByUserId } from '@/queries/product-queries';
+import { getUserByEmail } from '@/queries/user-queries';
 
 const Navbar = async ({ sideBar }) => {
     const session = await auth();
-    const user = session?.user;
+    const getUser = await getUserByEmail(session?.user?.email);
+    const user = getUser[0];
     const carts = await getCartByUserId(user?.userId);
 
     return (
@@ -38,7 +40,7 @@ const Navbar = async ({ sideBar }) => {
                             <Link href="/about">About</Link>
                             <Link href="/contact">Contact</Link>
 
-                            <Cart carts={carts}/>
+                            <Cart carts={carts} />
 
                             {
                                 user ? (<Account user={user} />) : (

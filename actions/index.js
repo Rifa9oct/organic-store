@@ -24,7 +24,7 @@ export async function login(formData) {
 }
 
 export async function customRevalidatePath() {
-    revalidatePath("/");
+    revalidatePath("/", "/account");
     return { status: 200 };
 }
 

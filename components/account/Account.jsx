@@ -40,9 +40,11 @@ const Account = ({ user }) => {
                         <div className="flex items-center gap-4 text-black border-b-2 px-4 pb-8">
                             {
                                 user?.image ? (
-                                    <Image src={user?.image} width={50} height={50} alt="user-info" className="rounded-full" />
+                                    <div className="w-[50px] h-[50px] rounded-full overflow-hidden">
+                                        <Image src={user?.image} width={50} height={50} alt="user-info" />
+                                    </div>
                                 ) : (
-                                    <FaUserCircle className="text-[50px]"/>
+                                    <FaUserCircle className="text-[50px]" />
                                 )
                             }
 
