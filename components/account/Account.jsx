@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { FaUser } from "react-icons/fa";
 import { PiSignOutBold } from "react-icons/pi";
 import { signOut } from "next-auth/react";
 import { usePathname } from "next/navigation";
@@ -33,14 +32,24 @@ const Account = ({ user }) => {
 
     return (
         <div className="relative" ref={dropdownRef}>
-            <button onClick={() => setShow(!show)}><FaUser className='text-xl text-black' /></button>
+            <button onClick={() => setShow(!show)}>
+                {
+                    user?.image ? (
+                        <div className="w-[40px] h-[40px] border border-lime-500 rounded-full overflow-hidden">
+                            <Image src={user?.image} width={40} height={40} alt="user-info" />
+                        </div>
+                    ) : (
+                        <FaUserCircle className="text-[50px]" />
+                    )
+                }
+            </button>
             {
                 show && (
-                    <div className="absolute w-[280px] h-[200px] bg-lime-100 shadow-lg rounded-lg right-0 top-10 transition py-8">
+                    <div className="absolute w-[280px] h-[200px] bg-lime-50 shadow-lg rounded-lg right-0 top-15 transition py-8">
                         <div className="flex items-center gap-4 text-black border-b-2 px-4 pb-8">
                             {
                                 user?.image ? (
-                                    <div className="w-[50px] h-[50px] rounded-full overflow-hidden">
+                                    <div className="w-[50px] h-[50px] rounded-full border border-lime-500 overflow-hidden">
                                         <Image src={user?.image} width={50} height={50} alt="user-info" />
                                     </div>
                                 ) : (

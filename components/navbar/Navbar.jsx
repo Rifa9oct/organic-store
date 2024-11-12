@@ -51,7 +51,7 @@ const Navbar = async ({ sideBar }) => {
 
                         <div className="lg:hidden flex items-center gap-6">
                             <Cart carts={carts} />
-                            <NavList />
+                            <NavList user={user}/>
                         </div>
                     </>
                 )

@@ -4,12 +4,13 @@ import Link from "next/link";
 import Drawer from 'react-modern-drawer';
 import 'react-modern-drawer/dist/index.css';
 import { useState } from "react";
-import { FaUser } from "react-icons/fa";
-import { PiListBold } from "react-icons/pi";
-import Cart from "../cart/Cart";
+import { FaUser, FaUserCircle } from "react-icons/fa";
+import { PiListBold, PiSignOutBold } from "react-icons/pi";
 import { RxCrossCircled } from "react-icons/rx";
+import Image from "next/image";
+import { signOut } from "next-auth/react";
 
-const NavList = () => {
+const NavList = ({ user }) => {
     const [show, setShow] = useState(false);
     return (
         <>
@@ -35,12 +36,46 @@ const NavList = () => {
                                     <RxCrossCircled className='text-[30px] cursor-pointer text-gray-400' />
                                 </div>
 
-                                <li className="pl-6 pb-5"><Link href="/account"><FaUser className='text-xl text-black mt-10' /></Link></li>
+                                <li className="pl-6 pb-5">
+                                    {
+                                        user ? (
+                                            <Link href="/account">
+                                                {
+                                                    user?.image ? (
+                                                        <div className="w-[40px] h-[40px] border border-lime-500 rounded-full overflow-hidden">
+                                                            <Image src={user?.image} width={40} height={40} alt="user-info" />
+                                                        </div>) : (
+                                                        <FaUserCircle className="text-[50px]" />
+                                                    )
+                                                }
+                                            </Link>
+                                        ) : (
+                                            <Link href="/login" ><FaUser className='text-xl text-black' /></Link>
+                                        )
+                                    }
+                                </li>
+                                
                                 <li className="border-t-2 py-5 pl-6"><Link href="/shop">Everything</Link></li>
                                 <li className="border-t-2 py-5 pl-6"><Link href="/groceries">Groceries</Link></li>
                                 <li className="border-t-2 py-5 pl-6"><Link href="/juice">Juice</Link></li>
                                 <li className="border-t-2 py-5 pl-6"><Link href="/about">About</Link></li>
-                                <li className="border-t-2 py-5 pl-6"><Link href="/contact">Contact</Link></li>
+                                <li className="border-y-2 py-5 pl-6"><Link href="/contact">Contact</Link></li>
+
+                                <li>
+                                    {
+                                        user && (
+                                            <div className="flex items-center pt-5 px-4 text-black  font-bold">
+                                                <PiSignOutBold className="text-xl mr-2" />
+                                                <button
+                                                    onClick={() => {
+                                                        signOut({ callbackUrl: "/login" })
+                                                    }}
+                                                    className="hover:text-lime-500"
+                                                >Sign Out</button>
+                                            </div>
+                                        )
+                                    }
+                                </li>
                             </Drawer>
                         </div>
                     )
