@@ -95,7 +95,6 @@ const getUpdateCart = async (productId, newQuantity) => {
             }
         } else {
             await cartModel.findOneAndDelete({ productId: productId });
-            console.log("product", productId);
         }
 
         revalidatePath('/');

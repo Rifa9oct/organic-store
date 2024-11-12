@@ -8,7 +8,6 @@ const CheckoutSummary = async () => {
     const user = session?.user;
     const checkoutSummary = await getCheckout(user?.email);
     const buyProducts = checkoutSummary[0]?.buyProducts;
-    console.log(checkoutSummary[0])
 
     return (
         <div className="m-6 lg:m-0">

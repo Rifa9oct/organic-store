@@ -19,7 +19,6 @@ const ReviewForm = ({ user, productId, reviews }) => {
                 const payload = { productId, userId:user?.userId, name: data.name, email: data.email, message: data.message};
 
                 const res = await axiosAuth.post("/api/auth/review", payload);
-                console.log(res)
 
                 if (res.status === 201) {
                     const res = await customRevalidatePath();
