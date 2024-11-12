@@ -19,48 +19,27 @@ const getPerPageProducts = async (title, query, page, min, max) => {
     const category = title === "Juice" ? title : "grocery";
 
     try {
-        let products, totalProduct, searchProducts;
-
-        const allProduct = await productModel.find().skip(skip).limit(9);
-
-        products = replaceMongoIdInArray(allProduct);
-        totalProduct = await productModel.countDocuments();
+        let products = [], totalProduct = 0;
+        const filter = {};
 
         if (title !== "Shop") {
-            const categorized = await productModel.find({ category: { $regex: new RegExp(category, "i") } }).skip(skip).limit(9);
-
-            products = replaceMongoIdInArray(categorized);
-            totalProduct = await productModel.countDocuments({
-                category: { $regex: new RegExp(category, "i") }
-            });
+            filter.category = { $regex: new RegExp(category, "i") };
         }
+
         if (query) {
-            if (title !== "Shop") {
-                const categorized = await productModel.find({ category: { $regex: new RegExp(category, "i") } });
-
-                searchProducts = categorized.filter(product => product.title.toLowerCase().includes(query.toLowerCase()));
-            } else {
-                const allProduct = await productModel.find();
-                searchProducts = allProduct.filter(product => product.title.toLowerCase().includes(query.toLowerCase()));
-            }
-
-            products = replaceMongoIdInArray(searchProducts);
-            totalProduct = searchProducts.length;
+            filter.title = { $regex: new RegExp(query, "i") };
         }
 
         if (min && max) {
             const minValue = parseFloat(min);
             const maxValue = parseFloat(max);
-
-            const allProducts = await productModel.find();
-
-            const filterProducts = allProducts.filter(product => {
-                return product.price >= minValue && product.price <= maxValue;
-            })
-
-            products = replaceMongoIdInArray(filterProducts);
-            totalProduct = filterProducts.length;
+            filter.price = { $gte: minValue, $lte: maxValue };
         }
+
+        const allProducts = await productModel.find(filter).skip(skip).limit(9);
+
+        products = replaceMongoIdInArray(allProducts);
+        totalProduct = await productModel.countDocuments(filter);
 
         return {
             products,
@@ -69,7 +48,6 @@ const getPerPageProducts = async (title, query, page, min, max) => {
     } catch (err) {
         throw err;
     }
-
 };
 
 const getProductById = async (productId) => {

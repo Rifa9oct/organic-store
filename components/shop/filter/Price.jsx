@@ -21,8 +21,8 @@ const Price = () => {
 
     useEffect(() => {
         const params = new URLSearchParams(searchParams);
-        const min = parseInt(price.min);
-        const max = parseInt(price.max);
+        const min = parseFloat(price.min);
+        const max = parseFloat(price.max);
 
         if (price.min && price.max && min > max || min === max) {
             setError("Min value can't be greater and equal than Max value.");
