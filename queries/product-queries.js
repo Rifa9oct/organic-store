@@ -12,7 +12,7 @@ const getProducts = async () => {
     return replaceMongoIdInArray(products);
 };
 
-const getPerPageProducts = async (title, query, page) => {
+const getPerPageProducts = async (title, query, page, min, max) => {
     await connectMongo();
 
     const skip = (page - 1) * 9;
@@ -46,6 +46,20 @@ const getPerPageProducts = async (title, query, page) => {
 
             products = replaceMongoIdInArray(searchProducts);
             totalProduct = searchProducts.length;
+        }
+
+        if (min && max) {
+            const minValue = parseFloat(min);
+            const maxValue = parseFloat(max);
+
+            const allProducts = await productModel.find();
+
+            const filterProducts = allProducts.filter(product => {
+                return product.price >= minValue && product.price <= maxValue;
+            })
+
+            products = replaceMongoIdInArray(filterProducts);
+            totalProduct = filterProducts.length;
         }
 
         return {
@@ -121,13 +135,13 @@ const getReviews = async () => {
 
 const getCheckout = async (email) => {
     await connectMongo();
-    const recentCheckout = await checkoutModel.find({email}).sort({ date: -1 }).limit(1);
+    const recentCheckout = await checkoutModel.find({ email }).sort({ date: -1 }).limit(1);
     return replaceCheckoutObject(recentCheckout);
 };
 
 const getCheckoutProducts = async (email) => {
     await connectMongo();
-    const recentCheckoutProducts = await checkoutModel.find({email}).sort({ date: -1 });
+    const recentCheckoutProducts = await checkoutModel.find({ email }).sort({ date: -1 });
     return replaceCheckoutObject(recentCheckoutProducts);
 };
 
@@ -140,5 +154,5 @@ export {
     getUpdateCart,
     getReviews,
     getCheckout,
-    getCheckoutProducts
+    getCheckoutProducts,
 }

@@ -3,8 +3,8 @@ import ProductCard from "../ProductCard";
 import Pagination from "./Pagination";
 import Image from "next/image";
 
-const RightSidebar = async ({ title, query, pageNo }) => {
-    const { products, totalProduct } = await getPerPageProducts(title, query, pageNo);
+const RightSidebar = async ({ title, query, pageNo, min, max }) => {
+    const { products, totalProduct } = await getPerPageProducts(title, query, pageNo, min, max);
 
     const start = (pageNo - 1) * 9 + 1;
     const end = Math.min((pageNo - 1) * 9 + 9, totalProduct);
