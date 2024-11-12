@@ -1,3 +1,31 @@
 {
-    "Everything": "Everything"
+    "Login": "Login",
+    "Welcome": "Welcome back customer",
+    "Email":"Email address",
+    "EmailPlaceholder":"youremail.@domain.com",
+    "EmailError":"Email field is required.",
+    "Password":"Password",
+    "PasswordError":"Password is required.",
+    "RememberMe":"Remember Me",
+    "ForgotPassword":"Forgot Password",
+    "LoginWith":"OR LOGIN WITH",
+    "Facebook":"Facebook",
+    "Google":"Google",
+    "DoNotAccount":"Don't have account",
+    "RegisterNow":"Register now",
+    
+    "CreateAccount":"Create an account",
+    "RegisterWelcome":"Register for a new cosutumer.",
+    "FullName":"Full Name",
+    "NamePlaceholder":"fulan fulana",
+    "NameError":"Name field is required.",
+    "PasswordError2":"Password must be 6 characters.",
+    "PasswordError3":"Password must be less than 15 characters.",
+    "TermsOne":"I have read and agree to the",
+    "TeemsTwo":"terms & conditions",
+    "SignUp":"OR SIGNUP WITH",
+    "HaveAccount":"Already have account",
+    "LoginNow":"Login now"
+
+
 }

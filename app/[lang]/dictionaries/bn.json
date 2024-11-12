@@ -1,3 +1,30 @@
 {
-    "Everything": ""
+    "Login": "প্রবেশ করুন",
+    "Welcome": "স্বাগত আবার গ্রাহক",
+    "Email":"ইমেইল ঠিকানা",
+    "EmailPlaceholder":"আপনার ইমেইল.@ডোমেইন.কম",
+    "EmailError":"ইমেল ক্ষেত্র প্রয়োজন",
+    "Password":"পাসওয়ার্ড",
+    "PasswordError":"পাসওয়ার্ড প্রয়োজন",
+    "RememberMe":"আমাকে মনে রাখবেন",
+    "ForgotPassword":"পাসওয়ার্ড ভুলে গেছেন",
+    "LoginWith":"অথবা এর সাথে লগইন করুন",
+    "Facebook":"ফেসবুক",
+    "Google":"গুগল",
+    "DoNotAccount":"কোনো অ্যাকাউন্ট নেই",
+    "RegisterNow":"নিবন্ধন করুন",
+
+    "CreateAccount":"অ্যাকাউন্ট তৈরি করুন",
+    "RegisterWelcome":"নতুন ক্রেতার  জন্য নিবন্ধন",
+    "FullName":"পুরো নাম",
+    "NamePlaceholder":"ফুলান ফুলানা",
+    "NameError":"নাম ক্ষেত্র আবশ্যক",
+    "PasswordError2":"পাসওয়ার্ড ৬ অক্ষরের হতে হবে",
+    "PasswordError3":"পাসওয়ার্ড ১৫ অক্ষরের কম হতে হবে",
+    "TermsOne":"আমি শর্তাবলী পড়েছি এবং তাতে সম্মত",
+    "TeemsTwo":"শর্তাবলী",
+    "SignUp":"অথবা এর সাথে সাইন আপ করুন",
+    "HaveAccount":"ইতিমধ্যে অ্যাকাউন্ট আছে",
+    "LoginNow":"এখনই লগ ইন করুন"
+
 }
