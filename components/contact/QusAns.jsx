@@ -3,7 +3,7 @@
 import Accordian from "./Accordian";
 import { useState } from "react";
 
-const QusAns = () => {
+const QusAns = ({dict}) => {
     const [activeIndex, setActiveIndex] = useState(null);
 
     const handleSetActiveIndex = (index) => {
@@ -15,45 +15,45 @@ const QusAns = () => {
             <div>
                 <Accordian
                     onActive={() => handleSetActiveIndex(1)}
-                    title="Pulvinar nostrud class cum facilis?"
+                    title={dict.Qus1}
                     isActive={activeIndex === 1} >
-                    I am item content. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar leo.
+                    {dict.Ans1}
                 </Accordian>
 
                 <Accordian
                     onActive={() => handleSetActiveIndex(2)}
-                    title="Pulvinar nostrud class cum facilis?"
+                    title={dict.Qus2}
                     isActive={activeIndex === 2} >
-                    I am item content. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar leo.
+                    {dict.Ans2}
                 </Accordian>
 
                 <Accordian
                     onActive={() => handleSetActiveIndex(3)}
-                    title="Pulvinar nostrud class cum facilis?"
+                    title={dict.Qus3}
                     isActive={activeIndex === 3} >
-                    I am item content. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar leo.
+                    {dict.Ans3}
                 </Accordian>
             </div>
             <div>
                 <Accordian
                     onActive={() => handleSetActiveIndex(4)}
-                    title="Pulvinar nostrud class cum facilis?"
+                    title={dict.Qus4}
                     isActive={activeIndex === 4} >
-                    I am item content. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar leo.
+                    {dict.Ans4}
                 </Accordian>
 
                 <Accordian
                     onActive={() => handleSetActiveIndex(5)}
-                    title="Pulvinar nostrud class cum facilis?"
+                    title={dict.Qus5}
                     isActive={activeIndex === 5} >
-                    I am item content. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar leo.
+                    {dict.Ans5}
                 </Accordian>
 
                 <Accordian
                     onActive={() => handleSetActiveIndex(6)}
-                    title="Pulvinar nostrud class cum facilis?"
+                    title={dict.Qus6}
                     isActive={activeIndex === 6} >
-                    I am item content. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar leo.
+                    {dict.Ans6}
                 </Accordian>
             </div>
         </div>

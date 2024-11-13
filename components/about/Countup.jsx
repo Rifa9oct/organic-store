@@ -4,7 +4,7 @@ import { useState } from 'react';
 import CountUp from 'react-countup';
 import ScrollTrigger from 'react-scroll-trigger';
 
-const Countup = () => {
+const Countup = ({dict}) => {
     const [counterOn, setCounterOn] = useState(false);
     
     return (
@@ -17,7 +17,7 @@ const Countup = () => {
                             <CountUp start={0} end={5000} duration={2} />+
                         </h1>
                     }
-                    <h2 className="text-xl">Years of Services</h2>
+                    <h2 className="text-xl">{dict.Services}</h2>
                 </div>
                 <div className='lg:w-[300px]'>
                     {
@@ -26,7 +26,7 @@ const Countup = () => {
                             <CountUp start={0} end={800} duration={2} />+
                         </h1>
                     }
-                    <h2 className="text-xl">Curated Products</h2>
+                    <h2 className="text-xl">{dict.CuratedProducts}</h2>
                 </div>
                 <div className='lg:w-[300px]'>
                     {
@@ -35,7 +35,7 @@ const Countup = () => {
                             <CountUp start={0} end={40} duration={2} />+
                         </h1>
                     }
-                    <h2 className="text-xl">Product Categories</h2>
+                    <h2 className="text-xl">{dict.ProductCategories}</h2>
                 </div>
             </div>
         </ScrollTrigger>
