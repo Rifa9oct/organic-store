@@ -8,8 +8,10 @@ import { auth } from '@/auth';
 import Account from '../account/Account';
 import { getCartByUserId } from '@/queries/product-queries';
 import { getUserByEmail } from '@/queries/user-queries';
+import { getDictionary } from '@/app/[lang]/dictionaries/dictionaries';
 
-const Navbar = async ({ sideBar }) => {
+const Navbar = async ({ sideBar, lang}) => {
+    const dict = await getDictionary(lang);
     const session = await auth();
     const getUser = await getUserByEmail(session?.user?.email);
     const user = getUser[0];
@@ -25,9 +27,9 @@ const Navbar = async ({ sideBar }) => {
                 {
                     sideBar && (
                         <div className='hidden text-lg lg:flex gap-6'>
-                            <Link href="/shop">Everything</Link>
-                            <Link href="/groceries">Groceries</Link>
-                            <Link href="/juice">Juice</Link>
+                            <Link href="/shop">{dict.Everything}</Link>
+                            <Link href="/groceries">{dict.Groceries}</Link>
+                            <Link href="/juice">{dict.Juice}</Link>
                         </div>
                     )
                 }
@@ -37,21 +39,21 @@ const Navbar = async ({ sideBar }) => {
                 sideBar && (
                     <>
                         <div className='hidden text-lg lg:flex gap-6 items-center text-gray-500'>
-                            <Link href="/about">About</Link>
-                            <Link href="/contact">Contact</Link>
+                            <Link href="/about">{dict.About}</Link>
+                            <Link href="/contact">{dict.Contact}</Link>
 
-                            <Cart carts={carts} />
+                            <Cart dict={dict} carts={carts} />
 
                             {
-                                user ? (<Account user={user} />) : (
+                                user ? (<Account dict={dict} user={user} />) : (
                                     <Link href="/login" ><FaUser className='text-xl text-black' /></Link>
                                 )
                             }
                         </div>
 
                         <div className="lg:hidden flex items-center gap-6">
-                            <Cart carts={carts} />
-                            <NavList user={user}/>
+                            <Cart dict={dict} carts={carts} />
+                            <NavList dict={dict} user={user}/>
                         </div>
                     </>
                 )

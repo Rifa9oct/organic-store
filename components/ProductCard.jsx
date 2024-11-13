@@ -22,7 +22,7 @@ const ProductCard = ({ product }) => {
 
                 {
                     product.discount !== 0 && (
-                        <div className="font-poppins absolute -top-3 -right-3 text-white bg-lime-500 rounded-full pt-3 pl-2 h-12 w-12">Sale</div>
+                        <div className="font-poppins absolute -top-3 -right-3 text-white bg-lime-500 rounded-full pt-3 h-12 w-12">Sale</div>
                     )
                 }
             </div>

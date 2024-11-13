@@ -5,10 +5,10 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { FaArrowDownLong } from "react-icons/fa6";
 import HeaderTitle from "./HeaderTitle";
 
-const Reviews = () => {
+const Reviews = ({dict}) => {
     return (
         <>
-            <HeaderTitle title="Customers Reviews" />
+            <HeaderTitle title={dict.CustomersReviews} />
             
             <div className="max-w-[1200px] mx-auto flex flex-col lg:flex-row gap-6 justify-between mb-5">
                 <div className="w-[376px] mx-auto lg:mx-0 rounded-lg shadow-lg lg:mt-[80px] p-[50px] border" >
@@ -28,11 +28,11 @@ const Reviews = () => {
 
                 <div className="w-[376px] mx-auto lg:mx-0 h-[422px] rounded-lg shadow-lg text-center text-white bg-[url('/offer.png')]">
                     <div className="flex flex-col justify-center bg-black bg-opacity-60 hover:bg-opacity-75 transition cursor-pointer h-[422px] rounded-lg">
-                        <h1 className="text-4xl font-extrabold mb-3">Deal Of The Day <br /> 15% Off On All <br /> Vegetables!</h1>
-                        <p className="font-poppins text-gray-300">I am text block. Click edit button to <br />change this tex em ips.</p>
+                        <h1 className="text-4xl font-extrabold mb-3">{dict.ReviewOffer1} <br /> {dict.ReviewOffer2} <br /> {dict.ReviewOffer3}</h1>
+                        <p className="font-poppins text-gray-300">{dict.ReviewTitle}</p>
                         <Link href="/shop">
                             <button className="font-poppins mt-4 bg-lime-600 hover:bg-lime-500 text-white px-5 py-3 rounded-md">
-                                <FaArrowRightLong className="inline-block text-lg mb-[2px]" /> Shop Now</button>
+                                <FaArrowRightLong className="inline-block text-lg mb-[2px]" /> {dict.ShopNow}</button>
                         </Link>
                     </div>
                 </div>
@@ -54,7 +54,7 @@ const Reviews = () => {
             </div>
             <div className="flex justify-center">
                 <button className="animate-bounce mt-4 shadow-lg shadow-black transition bg-black hover:bg-lime-500 text-white px-[15px] py-3 rounded-full">
-                    <FaArrowDownLong className="inline-block text-lg" />More</button>
+                    <FaArrowDownLong className="inline-block text-lg" />{dict.More}</button>
             </div>
         </>
     );

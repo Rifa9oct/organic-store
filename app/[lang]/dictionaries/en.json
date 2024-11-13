@@ -25,7 +25,80 @@
     "TeemsTwo":"terms & conditions",
     "SignUp":"OR SIGNUP WITH",
     "HaveAccount":"Already have account",
-    "LoginNow":"Login now"
+    "LoginNow":"Login now",
+
+    "Everything":"Everything",
+    "Groceries":"Groceries",
+    "Juice":"Juice",
+    "About":"About",
+    "Contact":"Contact",
+    "SignOut":"Sign Out",
+
+    "BannarSubTitle":"Best Quality Products",
+    "BannarTitle1":"Join The Organic",
+    "BannarTitle2":"Movement",
+    "BannarDes":"Fresh, Organic, and Sustainably Sourced- Discover nature's best with our handpicked organic products. Your journey to wellness starts here",
+    "ShopNow":"Shop Now",
+
+    "Shipping":"Free Shipping",
+    "ShippingTitle":"Above $5 Only",
+    "Certified":"Certified Organic",
+    "CertifiedTitle":"100% Guarantee",
+    "Savings":"Huge Savings",
+    "SavingsTitle":"At Lowest Price",
+    "Returns":"Easy Returns",
+    "ReturnsTitle":"No Questions Asked",
+
+    "BestSelling":"Best Selling Products",
+    "TrendingProducts":"Trending Products",
+
+    "FreshFruits":"Farm Fresh Fruits",
+    "FreshFruitsDes":"Fresh from the farm to your table - taste the difference in every bite !",
+    "FreshVegetables":"Fresh Vegetables",
+    "FreshVegetablesDes":"Fresh, vibrant, and full of flavor - garden goodness on your plate !",
+    "OrganicLegume":"Organic Legume",
+    "OrganicLegumeDes":"Wholesome, protein-rich, and naturally grown - perfect for nutritious meals !",
+    "Offer": "Get 25% Off On Your First Purchase!",
+
+    "CustomersReviews": "Customers Reviews",
+    "ReviewOffer1": "Deal Of The Day",
+    "ReviewOffer2": "15% Off On",
+    "ReviewOffer3": "All Vegetables!",
+    "ReviewTitle": "Enjoy a special discount - today only!",
+    "More": "More",
+    "FeaturedBrands": "Featured Brands:",
+
+    "Shopping":"Shopping Cart",
+    "ShoppingError":"No products in the cart.",
+    "Subtotal":"Subtotal",
+    "ViewCart":"View Cart",
+    "Checkout":"Checkout",
+    "ContinueShopping":"Continue Shopping",
+
+    "QuickLinks":"Quick Links",
+    "Home":"Home",
+    "Cart":"Cart",
+    "MyAccount":"My account",
+    "Shop":"Shop",
+    "SiteLinks":"Site Links",
+    "PrivacyPolicy":"Privacy Policy",
+    "ShippingDetails":"Shipping Details",
+    "OffersCoupons":"Offers Coupons",
+    "TermsConditions":"Terms & Conditions",
+    "KnowMore":"Know More About Us",
+    "VisitStore":"Visit Store",
+    "LetConnect":"Let’s Connect",
+    "LocateStores":"Locate Stores",
+    "Download":"Download Our Mobile App",
+    "FooterDes1":"Fresh from local farms, our organic products are grown with care to nourish your body and support sustainable practices. From fruits and vegetables to legumes and grains, we bring nature’s best to your table. Enjoy healthy living with quality you can trust !",
+    "FooterDes2":"Shop fresh, organic products on the go ! Download our app for easy browsing, exclusive offers, and seamless ordering.",    
+    "Copyright":"Copyright © 2024 | Organic Store"
+
+
+
+   
+
+
 
 
 }

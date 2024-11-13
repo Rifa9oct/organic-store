@@ -8,7 +8,7 @@ import { signOut } from "next-auth/react";
 import { usePathname } from "next/navigation";
 import { FaUserCircle } from "react-icons/fa";
 
-const Account = ({ user }) => {
+const Account = ({ user, dict }) => {
     const [show, setShow] = useState(false);
     const pathname = usePathname();
     const dropdownRef = useRef(null);
@@ -69,7 +69,7 @@ const Account = ({ user }) => {
                                     signOut({ callbackUrl: "/login" })
                                 }}
                                 className="hover:text-lime-500"
-                            >Sign Out</button>
+                            >{dict.SignOut}</button>
                         </div>
                     </div>
                 )

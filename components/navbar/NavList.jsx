@@ -10,7 +10,7 @@ import { RxCrossCircled } from "react-icons/rx";
 import Image from "next/image";
 import { signOut } from "next-auth/react";
 
-const NavList = ({ user }) => {
+const NavList = ({ user, dict }) => {
     const [show, setShow] = useState(false);
     return (
         <>
@@ -55,11 +55,11 @@ const NavList = ({ user }) => {
                                     }
                                 </li>
                                 
-                                <li className="border-t-2 py-5 pl-6"><Link href="/shop">Everything</Link></li>
-                                <li className="border-t-2 py-5 pl-6"><Link href="/groceries">Groceries</Link></li>
-                                <li className="border-t-2 py-5 pl-6"><Link href="/juice">Juice</Link></li>
-                                <li className="border-t-2 py-5 pl-6"><Link href="/about">About</Link></li>
-                                <li className="border-y-2 py-5 pl-6"><Link href="/contact">Contact</Link></li>
+                                <li className="border-t-2 py-5 pl-6"><Link href="/shop">{dict.Everything}</Link></li>
+                                <li className="border-t-2 py-5 pl-6"><Link href="/groceries">{dict.Groceries}</Link></li>
+                                <li className="border-t-2 py-5 pl-6"><Link href="/juice">{dict.Juice}</Link></li>
+                                <li className="border-t-2 py-5 pl-6"><Link href="/about">{dict.About}</Link></li>
+                                <li className="border-y-2 py-5 pl-6"><Link href="/contact">{dict.Contact}</Link></li>
 
                                 <li>
                                     {
@@ -71,7 +71,7 @@ const NavList = ({ user }) => {
                                                         signOut({ callbackUrl: "/login" })
                                                     }}
                                                     className="hover:text-lime-500"
-                                                >Sign Out</button>
+                                                >{dict.SignOut}</button>
                                             </div>
                                         )
                                     }

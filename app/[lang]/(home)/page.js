@@ -5,24 +5,25 @@ import Features from "@/components/Features";
 import Reviews from "@/components/Reviews";
 import ServiceItems from "@/components/ServiceItems";
 import Trending from "@/components/Trending";
-import { getProducts } from "@/queries/product-queries";
+import { getDictionary } from "../dictionaries/dictionaries";
 
 export const metadata = {
   title: "Organic Store | Home",
   description: "Home page description",
 };
 
-export default async function Home() {
+export default async function Home({ params:{lang} }) {
+  const dict = await getDictionary(lang);
 
   return (
     <div>
-      <Banner />
-      <Features />
-      <BestSelling />
-      <ServiceItems />
-      <Trending />
-      <Reviews />
-      <Brands />
+      <Banner dict={dict} />
+      <Features dict={dict} />
+      <BestSelling dict={dict}/>
+      <ServiceItems dict={dict}/>
+      <Trending dict={dict}/>
+      <Reviews dict={dict}/>
+      <Brands dict={dict}/>
     </div>
   );
 };

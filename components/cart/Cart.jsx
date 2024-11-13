@@ -9,7 +9,7 @@ import Image from 'next/image';
 import DeleteCart from '../action-button/DeleteCart';
 import { usePathname, useRouter } from 'next/navigation';
 
-const Cart = ({ carts }) => {
+const Cart = ({ carts, dict }) => {
     const [show, setShow] = useState(false);
     const [drawerSize, setDrawerSize] = useState(520);
     const router = useRouter();
@@ -85,7 +85,7 @@ const Cart = ({ carts }) => {
                         >
                             <div>
                                 <div className='flex justify-between items-center border-b-2 pb-3 px-5'>
-                                    <h3 className='text-gray-600'>Shopping Cart</h3>
+                                    <h3 className='text-gray-600'>{dict.Shopping}</h3>
                                     <div onClick={() => setShow(false)}>
                                         <RxCross2 className='text-xl cursor-pointer' />
                                     </div>
@@ -113,7 +113,7 @@ const Cart = ({ carts }) => {
                                             </>
                                         ) : (
                                             <div className='flex justify-center items-center h-screen-minus'>
-                                                <h2 className='text-gray-500 text-xl'>No products in the cart.</h2>
+                                                <h2 className='text-gray-500 text-xl'>{dict.ShoppingError}</h2>
                                             </div>
                                         )
                                     }
@@ -123,7 +123,7 @@ const Cart = ({ carts }) => {
                                     carts.length !== 0 && (
                                         <>
                                             <div className='flex justify-between p-5 text-gray-600 py-3 border-y-2'>
-                                                <h3>Subtotal</h3>
+                                                <h3>{dict.Subtotal}</h3>
                                                 <h3>£{totalPrice}</h3>
                                             </div>
 
@@ -132,7 +132,7 @@ const Cart = ({ carts }) => {
                                                     <button
                                                         onClick={() => setShow(false)}
                                                         className='uppercase rounded-md hover:bg-lime-500 bg-lime-600 py-3 w-full text-white transition'
-                                                    >View Cart</button>
+                                                    >{dict.ViewCart}</button>
                                                 </Link>
                                             </div>
                                         </>
@@ -143,7 +143,7 @@ const Cart = ({ carts }) => {
                                         <button
                                             onClick={() => setShow(false)}
                                             className='uppercase rounded-md hover:bg-lime-500 bg-lime-600 py-3 w-full text-white transition'
-                                        >{carts.length === 0 ? "Continue Shopping" : "Checkout"}</button>
+                                        >{carts.length === 0 ? `${dict.ContinueShopping}` : `${dict.Checkout}`}</button>
                                     </Link>
                                 </div>
                             </div >

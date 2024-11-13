@@ -1,9 +1,9 @@
 import Image from "next/image";
 
-const Brands = () => {
+const Brands = ({dict}) => {
     return (
         <div className="max-w-[1200px] mx-auto flex flex-col lg:flex-row items-center justify-center lg:justify-start  gap-16  my-[60px]">
-            <h1 className="text-2xl font-bold">Featured Brands:</h1>
+            <h1 className="text-2xl font-bold">{dict.FeaturedBrands}</h1>
 
             <div className="grid mx-auto lg:grid-cols-4 grid-cols-2 gap-8 lg:gap-20 items-center">
                 <Image src="/brands/brand3.png" width={140} height={96} alt="brand-logo" />
