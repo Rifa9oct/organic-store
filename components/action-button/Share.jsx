@@ -4,7 +4,7 @@ import { FacebookShareButton } from "react-share";
 
 const Share = ({id}) => {
     return (
-        <FacebookShareButton url={`https://organic-store-beta-smoky.vercel.app/details/${id}`} >
+        <FacebookShareButton url={`https://organic-store-red.vercel.app/details/${id}`} >
             <div className="flex gap-2 text-gray-600 cursor-pointer hover:text-lime-500">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

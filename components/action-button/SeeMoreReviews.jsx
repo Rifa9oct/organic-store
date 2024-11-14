@@ -18,7 +18,7 @@ const SeeMoreReviews = ({ dict }) => {
             replace(`${pathname}?${params.toString()}`);
         } else {
             params.delete('quantity');
-            replace('http://localhost:3000');
+            replace('https://organic-store-red.vercel.app');
         }
     }, [pathname, seeReview, replace, searchParams])
 
