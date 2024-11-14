@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import connectMongo from "@/dbConnect/connectMongo";
 import { authenticateRequest } from "@/utils/auth-utils";
 import { userModel } from "@/models/user-model";
+import reviewModel from "@/models/review-model";
 
 export const POST = async (request) => {
     try {
@@ -19,6 +20,7 @@ export const POST = async (request) => {
         await connectMongo();
 
         await userModel.updateOne({ email }, { image });
+        await reviewModel.updateOne({ email }, { image });
 
         return new NextResponse("Image updated successfully.", {
             status: 200,

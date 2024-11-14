@@ -6,17 +6,17 @@ import { useForm } from "react-hook-form";
 import { MdError } from "react-icons/md";
 import Swal from "sweetalert2";
 
-const ReviewForm = ({ user, productId, reviews }) => {
+const ReviewForm = ({ user, product, reviews }) => {
     const { axiosAuth } = useAxios();
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
-    const isAddReview = reviews.find(review => (review.productId === productId) && (review.userId === user?.userId));
+    const isAddReview = reviews.find(review => (review.productId === product?.id) && (review.userId === user?.userId));
 
     const onSubmit = async (data) => {
         if (!user) {
             router.push("/login");
         } else {
             try {
-                const payload = { productId, userId:user?.userId, name: data.name, email: data.email, message: data.message};
+                const payload = { productId: product?.id, userId:user?.userId, name: data.name, email: data.email, title: product?.title , message: data.message};
 
                 const res = await axiosAuth.post("/api/auth/review", payload);
 

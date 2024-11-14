@@ -3,7 +3,7 @@ import ReviewForm from "./ReviewForm";
 import { auth } from "@/auth";
 import { getReviews } from "@/queries/product-queries";
 
-const Reviews = async ({ productId }) => {
+const Reviews = async ({ product }) => {
     const session = await auth();
     const reviews = await getReviews();
 
@@ -11,7 +11,7 @@ const Reviews = async ({ productId }) => {
         <div className="mb-20 font-poppins">
             <h1 className="text-xl">Please, Give your review!</h1>
             <div className="lg:w-[1170px] p-[26px] border-2 mt-5">
-                <h1 className="text-xl text-gray-600">Review of “Assorted Coffee”</h1>
+                <h1 className="text-xl text-gray-600">Review of “{product?.title}”</h1>
                 <p className="text-gray-500 mt-2">Your email address will not be published. Required fields are marked *</p>
 
                 <div className="flex gap-1 items-center">
@@ -28,7 +28,7 @@ const Reviews = async ({ productId }) => {
                 <h3 className="text-lg my-2 text-gray-700">Your review *</h3>
                 <ReviewForm
                     user={session?.user}
-                    productId={productId}
+                    product={product}
                     reviews={reviews}
                 />
             </div>

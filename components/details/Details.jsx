@@ -12,11 +12,11 @@ import Tabs from "./tabs/Tabs";
 import Description from "./tabs/Description";
 import Reviews from "./tabs/Reviews";
 import { auth } from "@/auth";
-import { getReviews } from "@/queries/product-queries";
+import { getReviewsById } from "@/queries/product-queries";
 
 const Details = async ({ product }) => {
     const session = await auth();
-    const reviews = await getReviews();
+    const reviews = await getReviewsById(product?.id);
 
     return (
         <div className="lg:m-0 mx-8">
@@ -104,7 +104,7 @@ const Details = async ({ product }) => {
                 <Tabs
                     config={[
                         { header: "Description", component: <Description des={product.description} /> },
-                        { header: `Reviews (${reviews.length})`, component: <Reviews  productId={product?.id}/> },
+                        { header: `Reviews (${reviews?.length})`, component: <Reviews product={product}/> },
                     ]}
                 />
             </div>

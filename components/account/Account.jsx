@@ -39,7 +39,7 @@ const Account = ({ user, dict }) => {
                             <Image src={user?.image} width={40} height={40} alt="user-info" />
                         </div>
                     ) : (
-                        <FaUserCircle className="text-[50px]" />
+                        <FaUserCircle className="text-[40px]" />
                     )
                 }
             </button>

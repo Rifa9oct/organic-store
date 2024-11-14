@@ -12,7 +12,7 @@ export const metadata = {
   description: "Home page description",
 };
 
-export default async function Home({ params:{lang} }) {
+export default async function Home({ params:{lang}, searchParams:{ see_review} }) {
   const dict = await getDictionary(lang);
 
   return (
@@ -22,7 +22,7 @@ export default async function Home({ params:{lang} }) {
       <BestSelling dict={dict}/>
       <ServiceItems dict={dict}/>
       <Trending dict={dict}/>
-      <Reviews dict={dict}/>
+      <Reviews seeReview={see_review} dict={dict}/>
       <Brands dict={dict}/>
     </div>
   );

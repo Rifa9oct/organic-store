@@ -110,6 +110,12 @@ const getReviews = async () => {
     return replaceCartObjectId(reviews);
 };
 
+const getReviewsById = async (id) => {
+    await connectMongo();
+    const reviews = await reviewModel.find({productId: id});
+    return replaceCartObjectId(reviews);
+};
+
 const getCheckout = async (email) => {
     await connectMongo();
     const recentCheckout = await checkoutModel.find({ email }).sort({ date: -1 }).limit(1);
@@ -132,4 +138,5 @@ export {
     getReviews,
     getCheckout,
     getCheckoutProducts,
+    getReviewsById
 }
