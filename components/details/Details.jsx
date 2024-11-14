@@ -14,9 +14,10 @@ import Reviews from "./tabs/Reviews";
 import { auth } from "@/auth";
 import { getReviewsById } from "@/queries/product-queries";
 
-const Details = async ({ product }) => {
+const Details = async ({ product, lang }) => {
     const session = await auth();
     const reviews = await getReviewsById(product?.id);
+
 
     return (
         <div className="lg:m-0 mx-8">
@@ -95,7 +96,7 @@ const Details = async ({ product }) => {
                             <FaInstagram />
                         </Link>
 
-                        <Share id={product?.id}/>
+                        <Share lang={lang} id={product?.id}/>
                     </div>
                 </div>
             </div>
