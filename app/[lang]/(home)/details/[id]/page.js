@@ -5,12 +5,12 @@ export async function generateMetadata({ params: { id } }) {
     const product = await getProductById(id);
 
     return {
-        title: `Organic Store | ${product?.title}`,
-        description: product?.description?.slice(0, 100),
+        title: product.title,
+        description: product.description.slice(0, 100),
         openGraph: {
             images: [
                 {
-                    url: `${product?.thumbnail}`,
+                    url: `${product.thumbnail}`,
                     width: 1200,
                     height: 600,
                 },

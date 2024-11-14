@@ -41,11 +41,11 @@ const AccountPage = async () => {
                 <div className="flex flex-col-reverse lg:flex-row gap-20 lg:gap-[150px] justify-center mt-[50px]">
                     {/* order history  */}
                     <div className="mx-auto lg:mx-0 w-[350px] md:w-[500px] border p-5 shadow-lg">
-                        <p className="text-2xl font-bold mb-5 text-center border-b-[3px] pb-2 border-lime-500">Order History</p>
+                        <p className="text-2xl font-bold mb-5 text-center border-b-[3px] pb-2 border-lime-500">Older History</p>
                         {
                             checkoutProducts?.slice(1).length === 0 ? (
                                 <p className="text-center font-poppins">
-                                    Sorry! You have no order history.
+                                    Sorry! You have no older history.
                                 </p>
                             ) : (
                                 <div className="font-poppins">
