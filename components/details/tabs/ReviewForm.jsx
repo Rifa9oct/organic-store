@@ -11,6 +11,9 @@ const ReviewForm = ({ user, product, reviews }) => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const isAddReview = reviews.find(review => (review.productId === product?.id) && (review.userId === user?.userId));
 
+    const userName = user?.name || "";
+    const userEmail = user?.email || "";
+
     const onSubmit = async (data) => {
         if (!user) {
             router.push("/login");
@@ -50,7 +53,7 @@ const ReviewForm = ({ user, product, reviews }) => {
             <div className="flex gap-10" >
                 <div className="w-[550px]">
                     <label htmlFor="name" className="text-lg my-2 text-gray-700 block">Name *</label>
-                    <input type="text" name="name" defaultValue={`${isAddReview? "":user?.name}`}
+                    <input type="text" name="name" defaultValue={`${isAddReview? "":userName}`}
                         {...register("name", { required: true })}
                         placeholder="youre name" className="w-full shadow p-3 mb-2 outline-lime-500" />
                     {errors.name && <span className="text-sm mt-1 text-red-500"><MdError className="text-lg inline" /> Name field is required.</span>}
@@ -58,7 +61,7 @@ const ReviewForm = ({ user, product, reviews }) => {
 
                 <div className="w-[550px]">
                     <label htmlFor="email" className="text-lg my-2 text-gray-700 block">Email *</label>
-                    <input type="text" name="email" defaultValue={`${isAddReview? "":user?.email}`}
+                    <input type="text" name="email" defaultValue={`${isAddReview? "":userEmail}`}
                         {...register("email", { required: true })}
                         placeholder="youremail@domain.com" className="w-full shadow p-3 mb-2 outline-lime-500" />
                     {errors.email && <span className="text-sm mt-1 text-red-500"><MdError className="text-lg inline" /> Email field is required.</span>}
