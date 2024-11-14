@@ -43,7 +43,7 @@ const AccountPage = async () => {
                     <div className="mx-auto lg:mx-0 w-[350px] md:w-[500px] border p-5 shadow-lg">
                         <p className="text-2xl font-bold mb-5 text-center border-b-[3px] pb-2 border-lime-500">Order History</p>
                         {
-                            checkoutProducts.length === 0 ? (
+                            checkoutProducts?.slice(1).length === 0 ? (
                                 <p className="text-center font-poppins">
                                     Sorry! You have no order history.
                                 </p>
@@ -71,7 +71,7 @@ const AccountPage = async () => {
                         <p className="text-2xl font-bold mb-5 text-center border-b-[3px] pb-2 border-lime-500">Recent Purchases</p>
                         <div className="font-poppins">
                             {
-                                checkoutProducts.length === 0 ? (
+                                checkoutProducts?.length === 0 ? (
                                     <p className="text-center">
                                         Sorry! You have no recent purchases.
                                     </p>
