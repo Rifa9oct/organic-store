@@ -19,13 +19,12 @@ export async function generateMetadata({ params: { id } }) {
     };
 }
 
-const DetailsPage = async ({ params: { id, lang } }) => {
-    const product = await getProductById(id);
+const DetailsPage = async ({ params: { id } }) => {
 
     return (
         <div className="bg-[#F8F6F3]">
             <div className="max-w-[1320px] mx-auto">
-                <Details lang={lang} product={product} />
+                <Details id={id} />
             </div>
         </div>
     );
