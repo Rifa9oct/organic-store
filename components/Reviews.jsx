@@ -28,7 +28,7 @@ const Reviews = async ({ dict, seeReview }) => {
                     <div className="flex items-center justify-center gap-4 mt-4">
                         {
                             reviews[0]?.image ? (
-                                <Image src={reviews[0]?.image} width={100} height={100} alt="person" className="w-[55px] h-[55px] rounded-full" />
+                                <Image src={reviews[0]?.image} width={100} height={100} alt="person" className="w-[50px] h-[50px] rounded-full border" />
                             ) : (
                                 <FaUserCircle className="text-[50px]" />
                             )
@@ -62,7 +62,7 @@ const Reviews = async ({ dict, seeReview }) => {
                     <div className="flex items-center justify-center gap-4 mt-4">
                         {
                             reviews[1]?.image ? (
-                                <Image src={reviews[1]?.image} width={100} height={100} alt="person" className="w-[55px] h-[55px] rounded-full" />
+                                <Image src={reviews[1]?.image} width={100} height={100} alt="person" className="w-[50px] h-[50px] rounded-full border" />
                             ) : (
                                 <FaUserCircle className="text-[50px]" />
                             )
@@ -91,9 +91,9 @@ const Reviews = async ({ dict, seeReview }) => {
                                     <div className="flex items-center justify-center gap-4 mt-4">
                                         {
                                             review.image ? (
-                                                <Image src={review.image} width={100} height={100} alt="person" className="w-[55px] h-[55px] rounded-full" />
+                                                <Image src={review.image} width={100} height={100} alt="person" className="w-[50px] h-[50px] rounded-full border" />
                                             ) : (
-                                                <FaUserCircle className="text-[55px]" />
+                                                <FaUserCircle className="text-[50px]" />
                                             )
                                         }
 
