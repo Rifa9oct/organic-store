@@ -1,5 +1,5 @@
 
-# 🌿 Introducing My Full-Stack Organic Store Web App! 🌿
+# 🌿Introducing My Organic Store Web App!🌿
 
 I am excited to share my latest project – a complete organic store application built with a powerful tech stack to enhance your online shopping experience:
 
@@ -8,7 +8,7 @@ I am excited to share my latest project – a complete organic store application
 
 
 
-## ✨ Features:
+## ✨Features:
 
 - **Add to Cart:** Effortlessly add products to your cart.
 - **Edit Quantity:** Adjust product quantities after adding them to the cart.
