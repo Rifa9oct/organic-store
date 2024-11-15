@@ -16,7 +16,7 @@ const NavList = ({ user, dict }) => {
         <>
             <div
                 onClick={() => setShow(true)}
-                className='lg:hidden text-xl'>
+                className='lg:hidden text-lg'>
                 <div className="bg-lime-500 p-2 rounded"><PiListBold /></div>
             </div >
 
@@ -50,7 +50,7 @@ const NavList = ({ user, dict }) => {
                                                 }
                                             </CustomLink>
                                         ) : (
-                                            <CustomLink path="/login" ><FaUser className='text-xl text-black' /></CustomLink>
+                                            <CustomLink path="/login" ><FaUser className='text-lg text-black' /></CustomLink>
                                         )
                                     }
                                 </li>
@@ -65,7 +65,7 @@ const NavList = ({ user, dict }) => {
                                     {
                                         user && (
                                             <div className="flex items-center pt-5 px-4 text-black  font-bold">
-                                                <PiSignOutBold className="text-xl mr-2" />
+                                                <PiSignOutBold className="text-lg mr-2" />
                                                 <button
                                                     onClick={() => {
                                                         signOut({ callbackUrl: "/login" })

@@ -26,7 +26,7 @@ const Navbar = async ({ sideBar, lang }) => {
 
                 {
                     sideBar && (
-                        <div className='hidden text-xl lg:flex gap-6'>
+                        <div className='hidden text-lg lg:flex gap-6'>
                             <CustomLink path="/shop">{dict.Everything}</CustomLink>
                             <CustomLink path="/groceries">{dict.Groceries}</CustomLink>
                             <CustomLink path="/juice">{dict.Juice}</CustomLink>
@@ -38,7 +38,7 @@ const Navbar = async ({ sideBar, lang }) => {
             {
                 sideBar && (
                     <>
-                        <div className='hidden text-xl lg:flex gap-6 items-center text-gray-500'>
+                        <div className='hidden text-lg lg:flex gap-6 items-center text-gray-500'>
                             <CustomLink path="/about">{dict.About}</CustomLink>
                             <CustomLink path="/contact">{dict.Contact}</CustomLink>
 
@@ -46,7 +46,7 @@ const Navbar = async ({ sideBar, lang }) => {
 
                             {
                                 user ? (<Account dict={dict} user={user} />) : (
-                                    <CustomLink path="/login" ><FaUser className='text-xl text-black' /></CustomLink>
+                                    <CustomLink path="/login" ><FaUser className='text-lg text-black' /></CustomLink>
                                 )
                             }
                         </div>
