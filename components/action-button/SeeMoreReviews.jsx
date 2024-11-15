@@ -15,10 +15,10 @@ const SeeMoreReviews = ({ dict }) => {
 
         if (seeReview) {
             params.set('see_review', seeReview);
-            replace(`${pathname}?${params.toString()}`);
+            replace(`${pathname}?${params.toString()}`, { scroll: false });
         } else {
             params.delete('quantity');
-            replace('https://organic-store-red.vercel.app');
+            replace('https://organic-store-red.vercel.app', { scroll: false });
         }
     }, [pathname, seeReview, replace, searchParams])
 

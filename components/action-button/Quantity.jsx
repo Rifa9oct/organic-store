@@ -20,7 +20,7 @@ const Quantity = ({ totalQuantity }) => {
         } else {
             params.delete('quantity');
         }
-        replace(`${pathname}?${params.toString()}`);
+        replace(`${pathname}?${params.toString()}`, { scroll: false });
     }
 
     const increment = () => {
