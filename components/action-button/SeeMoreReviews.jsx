@@ -18,7 +18,7 @@ const SeeMoreReviews = ({ dict, see }) => {
             replace(`${pathname}?${params.toString()}`, { scroll: false });
         } else {
             params.delete('quantity');
-            replace('http://localhost:3000', { scroll: false });
+            replace('https://organic-store-red.vercel.app', { scroll: false });
         }
     }, [pathname, seeReview, replace, searchParams])
 
@@ -28,7 +28,7 @@ const SeeMoreReviews = ({ dict, see }) => {
                 onClick={() => setSeeReview(!seeReview)}
                 className="animate-bounce mt-4 shadow-lg shadow-black transition bg-black hover:bg-lime-500 text-white px-[15px] py-3 rounded-full">
                 {
-                    see ? (
+                    seeReview ? (
                         <div className="flex items-center">
                             <FaArrowUpLong />
                             <p>{dict.Less}</p>
