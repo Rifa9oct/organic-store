@@ -12,7 +12,7 @@ const ServiceItems = ({dict}) => {
 
             <div className="bg-[#F8F6F3] py-[100px]">
                 <div className="max-w-[1200px] mx-auto flex flex-col gap-6 lg:flex-row justify-between">
-                    <div className="card_body p-8 mx-auto lg:mx-0 w-[370px] h-[360px] bg-white rounded-lg shadow-lg">
+                    <div className="card_body overflow-hidden p-8 mx-auto lg:mx-0 w-[370px] h-[360px] bg-white rounded-lg shadow-lg">
                         <h1 className="text-2xl font-bold">{dict.FreshFruits}</h1>
                         <p className="text-gray-500 my-2 font-poppins">{dict.FreshFruitsDes}</p>
 
@@ -22,7 +22,7 @@ const ServiceItems = ({dict}) => {
                         </Link>
                         <Image src="/img2.png" width={240} height={240} alt="banner" className="mx-auto" />
                     </div>
-                    <div className="card_body p-8 mx-auto lg:mx-0 w-[370px] h-[360px] bg-white rounded-md shadow-md">
+                    <div className="card_body overflow-hidden p-8 mx-auto lg:mx-0 w-[370px] h-[360px] bg-white rounded-md shadow-md">
                         <h1 className="text-2xl font-bold">{dict.FreshVegetables}</h1>
                         <p className="text-gray-500 my-2 font-poppins">{dict.FreshVegetablesDes}</p>
 
@@ -32,7 +32,7 @@ const ServiceItems = ({dict}) => {
                         </Link>
                         <Image src="/img1.png" width={260} height={260} alt="banner" className="mx-auto" />
                     </div>
-                    <div className="card_body p-8 mx-auto lg:mx-0 w-[370px] h-[360px] bg-white rounded-md shadow-md">
+                    <div className="card_body overflow-hidden p-8 mx-auto lg:mx-0 w-[370px] h-[360px] bg-white rounded-md shadow-md">
                         <h1 className="text-2xl font-bold">{dict.OrganicLegume}</h1>
                         <p className="text-gray-500 my-2 font-poppins">{dict.OrganicLegumeDes}</p>
 
