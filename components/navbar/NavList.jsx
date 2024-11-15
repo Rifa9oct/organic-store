@@ -1,6 +1,5 @@
 "use client"
 
-import Link from "next/link";
 import Drawer from 'react-modern-drawer';
 import 'react-modern-drawer/dist/index.css';
 import { useState } from "react";
@@ -9,6 +8,7 @@ import { PiListBold, PiSignOutBold } from "react-icons/pi";
 import { RxCrossCircled } from "react-icons/rx";
 import Image from "next/image";
 import { signOut } from "next-auth/react";
+import CustomLink from './CustomLink';
 
 const NavList = ({ user, dict }) => {
     const [show, setShow] = useState(false);
@@ -39,7 +39,7 @@ const NavList = ({ user, dict }) => {
                                 <li className="pl-6 pb-5">
                                     {
                                         user ? (
-                                            <Link href="/account">
+                                            <CustomLink path="/account">
                                                 {
                                                     user?.image ? (
                                                         <div className="w-[40px] h-[40px] border border-lime-500 rounded-full overflow-hidden">
@@ -48,18 +48,18 @@ const NavList = ({ user, dict }) => {
                                                         <FaUserCircle className="text-[50px]" />
                                                     )
                                                 }
-                                            </Link>
+                                            </CustomLink>
                                         ) : (
-                                            <Link href="/login" ><FaUser className='text-xl text-black' /></Link>
+                                            <CustomLink path="/login" ><FaUser className='text-xl text-black' /></CustomLink>
                                         )
                                     }
                                 </li>
                                 
-                                <li className="border-t-2 py-5 pl-6"><Link href="/shop">{dict.Everything}</Link></li>
-                                <li className="border-t-2 py-5 pl-6"><Link href="/groceries">{dict.Groceries}</Link></li>
-                                <li className="border-t-2 py-5 pl-6"><Link href="/juice">{dict.Juice}</Link></li>
-                                <li className="border-t-2 py-5 pl-6"><Link href="/about">{dict.About}</Link></li>
-                                <li className="border-y-2 py-5 pl-6"><Link href="/contact">{dict.Contact}</Link></li>
+                                <li className="border-t-2 py-5 pl-6"><CustomLink path="/shop">{dict.Everything}</CustomLink></li>
+                                <li className="border-t-2 py-5 pl-6"><CustomLink path="/groceries">{dict.Groceries}</CustomLink></li>
+                                <li className="border-t-2 py-5 pl-6"><CustomLink path="/juice">{dict.Juice}</CustomLink></li>
+                                <li className="border-t-2 py-5 pl-6"><CustomLink path="/about">{dict.About}</CustomLink></li>
+                                <li className="border-y-2 py-5 pl-6"><CustomLink path="/contact">{dict.Contact}</CustomLink></li>
 
                                 <li>
                                     {

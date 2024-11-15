@@ -74,7 +74,7 @@ const AddToCart = ({ userId, product }) => {
         <div>
             <button
                 onClick={handleClick}
-                className="bg-lime-600 hover:bg-lime-500 text-white px-8 py-2 font-medium rounded uppercase flex items-center gap-2 transition">
+                className="bg-lime-600 hover:bg-lime-500 text-white text-sm px-4 md:text-base md:px-8 py-2 font-medium rounded uppercase flex items-center gap-2 transition">
                 <HiOutlineShoppingBag />Addtocart
             </button>
             {

@@ -12,7 +12,7 @@ const Banner = ({dict}) => {
                     <h2 className="text-xl lg:text-2xl font-bold my-3">{dict.BannarSubTitle}</h2>
                     <h1 className="text-4xl lg:text-6xl font-bold">{dict.BannarTitle1}</h1>
                     <h1 className="text-4xl lg:text-6xl font-bold mt-3">{dict.BannarTitle2}!</h1>
-                    <p className="font-poppins lg:w-[512px] text-gray-600 mt-4">{dict.BannarDes}</p>
+                    <p className="font-poppins px-5 md:pr-5 lg:px-0 lg:w-[512px] text-gray-600 mt-4">{dict.BannarDes}</p>
                     <Link href="/shop">
                         <button className="font-poppins mt-4 bg-lime-600 hover:bg-lime-500 text-white px-5 py-3 rounded-md md:mb-0 mb-10">
                             <FaShoppingCart className="inline-block text-lg mb-[2px]" /> {dict.ShopNow}</button>

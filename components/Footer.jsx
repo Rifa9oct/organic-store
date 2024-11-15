@@ -9,13 +9,13 @@ const Footer = async ({ lang }) => {
     const dict = await getDictionary(lang);
 
     return (
-        <div className="pt-[75px] bg-black">
+        <div className="pt-6 lg:pt-[75px] bg-black">
             <div className="max-w-[1200px] mx-auto lg:p-0 p-8 flex flex-col lg:flex-row text-center lg:text-start justify-between text-[#ffffffa8]">
                 <div>
                     <Link href="/">
                         <Image src="/footerLogo.png" width={150} height={70} alt="Logo" className="mx-auto lg:mx-0" />
                     </Link>
-                    <p className="lg:mb-0 mb-8 mt-8 lg:w-[350px] text-lg font-bold">{dict.FooterDes1}</p>
+                    <p className="lg:mb-0 mb-8 mt-8 lg:w-[350px] md:text-lg font-bold">{dict.FooterDes1}</p>
                 </div>
                 <div className="flex flex-row lg:flex-col justify-center gap-10 lg:gap-0 md:gap-16 mb-8 lg:mb-0">
                     <div className="list-none">
@@ -41,7 +41,7 @@ const Footer = async ({ lang }) => {
                     </div>
                 </div>
                 <div>
-                    <div className="mb-16">
+                    <div className="mb-8 lg:mb-16">
                         <h1 className="text-2xl font-bold text-white mb-5">{dict.Download}</h1>
                         <p className="font-poppins lg:w-[300px]">{dict.FooterDes2}</p>
                     </div>
@@ -62,7 +62,7 @@ const Footer = async ({ lang }) => {
                 </div>
             </div>
 
-            <div className="text-[#ffffffa8] mt-[75px] py-[30px] border-t border-gray-500">
+            <div className="text-[#ffffffa8] mt-6 lg:mt-[75px] py-[30px] border-t border-gray-500">
                 <div className="max-w-[1200px] mx-auto px-8 lg:p-0 gap-4 md:gap-0 flex md:flex-row flex-col justify-center md:justify-between items-center">
                     <p className="font-poppins">{dict.Copyright}</p>
                     <div className="flex list-none gap-6">
