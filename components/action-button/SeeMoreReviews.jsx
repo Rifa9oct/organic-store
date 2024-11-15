@@ -4,7 +4,7 @@ import { FaArrowDownLong, FaArrowUpLong } from "react-icons/fa6";
 import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from "react";
 
-const SeeMoreReviews = ({ dict }) => {
+const SeeMoreReviews = ({ dict, see }) => {
     const [seeReview, setSeeReview] = useState(false)
     const searchParams = useSearchParams();
     const pathname = usePathname();
@@ -18,7 +18,7 @@ const SeeMoreReviews = ({ dict }) => {
             replace(`${pathname}?${params.toString()}`, { scroll: false });
         } else {
             params.delete('quantity');
-            replace('https://organic-store-red.vercel.app', { scroll: false });
+            replace('http://localhost:3000', { scroll: false });
         }
     }, [pathname, seeReview, replace, searchParams])
 
@@ -28,7 +28,7 @@ const SeeMoreReviews = ({ dict }) => {
                 onClick={() => setSeeReview(!seeReview)}
                 className="animate-bounce mt-4 shadow-lg shadow-black transition bg-black hover:bg-lime-500 text-white px-[15px] py-3 rounded-full">
                 {
-                    seeReview ? (
+                    see ? (
                         <div className="flex items-center">
                             <FaArrowUpLong />
                             <p>{dict.Less}</p>

@@ -15,7 +15,7 @@ const Reviews = async ({ dict, seeReview }) => {
             <HeaderTitle title={dict.CustomersReviews} />
 
             <div className="max-w-[1200px] mx-auto flex flex-col lg:flex-row gap-10 mb-5">
-                <div className="card_body w-[376px] h-[345px] mx-auto lg:mx-0 rounded-lg shadow-lg lg:mt-[78px] p-10 border" >
+                <div className="card_body w-[3] md:w-[376px] h-[80%] md:h-[345px] mx-auto lg:mx-0 rounded-lg shadow-lg lg:mt-[78px] p-10 border" >
                     <div className="flex gap-1 justify-center mb-3">
                         {
                             rating.map(rate => (
@@ -38,7 +38,7 @@ const Reviews = async ({ dict, seeReview }) => {
                     </div>
                 </div>
 
-                <div className="card_body w-[376px] mx-auto lg:mx-0 h-[422px] rounded-lg shadow-lg text-center text-white bg-[url('/offer.png')]">
+                <div className="card_body w-[3] md:w-[376px] h-[60%] md:h-[422px] mx-auto lg:mx-0 rounded-lg shadow-lg text-center text-white bg-[url('/offer.png')]">
                     <div className="flex flex-col justify-center bg-black bg-opacity-60 hover:bg-opacity-75 transition cursor-pointer h-[422px] rounded-lg">
                         <h1 className="text-4xl font-extrabold mb-3">{dict.ReviewOffer1} <br /> {dict.ReviewOffer2} <br /> {dict.ReviewOffer3}</h1>
                         <p className="font-poppins text-gray-300">{dict.ReviewTitle}</p>
@@ -49,7 +49,7 @@ const Reviews = async ({ dict, seeReview }) => {
                     </div>
                 </div>
 
-                <div className="card_body w-[376px] h-[345px] mx-auto lg:mx-0 rounded-lg shadow-lg lg:mt-[78px] p-10 border" >
+                <div className="card_body w-[3] md:w-[376px] h-[80%] md:h-[345px] mx-auto lg:mx-0 rounded-lg shadow-lg lg:mt-[78px] p-10 border" >
                     <div className="flex gap-1 justify-center mb-3">
                         {
                             rating.map(rate => (
@@ -78,7 +78,7 @@ const Reviews = async ({ dict, seeReview }) => {
                     <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 mb-5 mt-10">
                         {
                             reviews?.slice(2).map(review => (
-                                <div key={review.id} className="card_body w-[376px] h-[345px] mx-auto lg:mx-0 rounded-lg shadow-lg p-10 border" >
+                                <div key={review.id} className="card_body w-[3] md:w-[376px] h-[80%] md:h-[345px] mx-auto lg:mx-0 rounded-lg shadow-lg p-10 border" >
                                     <div className="flex gap-1 justify-center mb-3">
                                         {
                                             rating.map(rate => (
@@ -107,7 +107,7 @@ const Reviews = async ({ dict, seeReview }) => {
             }
 
             <div className="flex justify-center">
-                <SeeMoreReviews dict={dict} />
+                <SeeMoreReviews see={seeReview} dict={dict} />
             </div>
         </>
     );
