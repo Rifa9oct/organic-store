@@ -14,7 +14,7 @@ const cartSchema = new Schema({
         required: true,
         type: String
     },
-    thumbnail: {
+    image: {
         required: true,
         type: String
     },

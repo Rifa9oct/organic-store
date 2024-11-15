@@ -8,9 +8,9 @@ export const POST = async (request) => {
         const { error } = authenticateRequest(request);
         if (error) return error;
 
-        const { userId, productId, price, title, thumbnail, quantityToBuy, totalPrice } = await request.json();
+        const { userId, productId, price, title, image, quantityToBuy, totalPrice } = await request.json();
 
-        if (!userId || !productId || !title || !thumbnail || quantityToBuy == null || totalPrice == null || price == null) {
+        if (!userId || !productId || !title || !image || quantityToBuy == null || totalPrice == null || price == null) {
             return new NextResponse("Invalid or missing property", {
                 status: 400,
             });
@@ -19,7 +19,7 @@ export const POST = async (request) => {
         await connectMongo();
 
         const payload = {
-            userId, productId, title, thumbnail, price, quantityToBuy, totalPrice
+            userId, productId, title, image, price, quantityToBuy, totalPrice
         };
 
         const isCart = await cartModel.findOne({

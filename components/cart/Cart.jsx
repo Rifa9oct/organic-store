@@ -99,7 +99,7 @@ const Cart = ({ carts, dict }) => {
                                                     carts?.map(cart => (
                                                         <div key={cart.id} className='flex items-center justify-between'>
                                                             <div className='flex items-center gap-4 p-6'>
-                                                                <Image src={cart.thumbnail} width={64} height={64} alt='product' className='border-2 p-1' />
+                                                                <Image src={cart.image} width={64} height={64} alt='product' className='border-2 p-1' />
                                                                 <div className='text-gray-600'>
                                                                     <h3>{cart.title}</h3>
                                                                     <h3>{cart.quantityToBuy} × £{cart.price}</h3>

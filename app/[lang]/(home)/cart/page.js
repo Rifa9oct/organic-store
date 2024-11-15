@@ -50,7 +50,7 @@ const CartPage = async () => {
                                             <div key={cart.id} className="flex lg:flex-row flex-col p-5 border-b-2">
                                                 <div className="w-[20%] flex items-center pl-8 gap-10">
                                                     <DeleteCart productId={cart.productId} />
-                                                    <Image src={cart.thumbnail} width={64} height={64} alt='product' />
+                                                    <Image src={cart.image} width={64} height={64} alt='product' />
                                                 </div>
 
                                                 <div key={cart.id} className="flex w-[80%] justify-between items-center font-poppins text-lg text-gray-600">
@@ -73,7 +73,7 @@ const CartPage = async () => {
                                             <div key={cart.id}>
                                                 <div className="flex justify-center items-center py-3 gap-10">
                                                     <DeleteCart productId={cart.productId} />
-                                                    <Image src={cart.thumbnail} width={64} height={64} alt='product' />
+                                                    <Image src={cart.image} width={64} height={64} alt='product' />
                                                 </div>
 
                                                 <div className="border-y-2">

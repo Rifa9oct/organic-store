@@ -16,7 +16,7 @@ const Checkout = ({ userId, product }) => {
     const quantity = searchParams.get("quantity")?.toString();
     const router = useRouter();
 
-    const { id: productId, title, thumbnail, price } = product;
+    const { id: productId, title, image, price } = product;
 
     if (status === "unauthenticated") {
         update();
@@ -37,7 +37,7 @@ const Checkout = ({ userId, product }) => {
     };
 
     const payload = {
-        userId, productId, title, thumbnail, price,
+        userId, productId, title, image, price,
         quantityToBuy: parseInt(quantity),
         totalPrice: (parseInt(quantity) * price).toFixed(2)
     }
