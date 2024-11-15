@@ -10,7 +10,7 @@ export async function generateMetadata({ params: { id } }) {
         openGraph: {
             images: [
                 {
-                    url: "https://i.ibb.co.com/9bZRZK1/Untitled-1.png",
+                    url: `${product.thumbnail}`,
                     width: 1200,
                     height: 600,
                 },

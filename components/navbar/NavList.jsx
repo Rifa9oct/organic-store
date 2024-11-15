@@ -2,20 +2,27 @@
 
 import Drawer from 'react-modern-drawer';
 import 'react-modern-drawer/dist/index.css';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaUser, FaUserCircle } from "react-icons/fa";
 import { PiListBold, PiSignOutBold } from "react-icons/pi";
 import { RxCrossCircled } from "react-icons/rx";
 import Image from "next/image";
 import { signOut } from "next-auth/react";
 import CustomLink from './CustomLink';
+import { usePathname } from 'next/navigation';
 
 const NavList = ({ user, dict }) => {
     const [show, setShow] = useState(false);
+    const pathname = usePathname();
+
+    useEffect(() => {
+        setShow(false);
+    }, [pathname]);
+
     return (
         <>
             <div
-                onClick={() => setShow(true)}
+                onClick={() => setShow(!show)}
                 className='lg:hidden text-lg'>
                 <div className="bg-lime-500 p-2 rounded"><PiListBold /></div>
             </div >
@@ -54,7 +61,7 @@ const NavList = ({ user, dict }) => {
                                         )
                                     }
                                 </li>
-                                
+
                                 <li className="border-t-2 py-5 pl-6"><CustomLink path="/shop">{dict.Everything}</CustomLink></li>
                                 <li className="border-t-2 py-5 pl-6"><CustomLink path="/groceries">{dict.Groceries}</CustomLink></li>
                                 <li className="border-t-2 py-5 pl-6"><CustomLink path="/juice">{dict.Juice}</CustomLink></li>

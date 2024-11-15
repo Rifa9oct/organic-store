@@ -14,20 +14,20 @@ const ContactInfo = ({dict}) => {
             <div className='flex flex-col md:flex-row gap-8 justify-between'>
                 <div className='flex flex-col items-center justify-center border-2 rounded-lg text-gray-600 gap-2 w-[250px] md:w-[325px] h-[140px]'>
                     <IoCall className='text-3xl text-lime-500' />
-                    <p>+{dict.ContactNo}</p>
-                    <p>+{dict.ContactNo}</p>
+                    <p>+{dict.ContactNo1}</p>
+                    <p>+{dict.ContactNo2}</p>
                 </div>
 
                 <div className='flex flex-col items-center justify-center border-2 rounded-lg text-gray-600 gap-2 w-[250px] md:w-[325px] h-[140px]'>
                     <MdMessage className='text-3xl text-lime-500' />
-                    <p>info@example.com</p>
-                    <p>support@example.com</p>
+                    <p>kohinuraktherr@gmail.com</p>
+                    <p>supportteam@gmail.com</p>
                 </div>
 
                 <div className='flex flex-col items-center justify-center border-2 rounded-lg text-gray-600 gap-2 w-[250px] md:w-[325px] h-[140px]'>
                     <FaLocationDot className='text-3xl text-lime-500' />
-                    <p>1569 Ave, New York,</p>
-                    <p>NY 10028, USA</p>
+                    <p>{dict.Adress1}</p>
+                    <p>{dict.Adress2}</p>
                 </div>
             </div>
         </div>

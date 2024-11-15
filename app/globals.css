@@ -15,3 +15,11 @@
 .animate-bounce {
     animation: upDown 2s ease-in-out infinite;
 }
+
+
+.card_body{
+    transition: all 0.3s;
+}
+.card_body:hover {
+    transform: scale(1.08);
+}
