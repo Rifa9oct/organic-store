@@ -112,9 +112,21 @@ const getReviews = async () => {
 
 const getReviewsById = async (id) => {
     await connectMongo();
-    const reviews = await reviewModel.find({productId: id});
+    const reviews = await reviewModel.find({ productId: id });
     return replaceCartObjectId(reviews);
 };
+
+const getDeleteReview = async (reviewId) => {
+    await connectMongo();
+    try {
+        await reviewModel.findOneAndDelete({ _id: reviewId });
+
+        revalidatePath('/');
+        return { status: 200, message: "Your review deleted successfully!" };
+    } catch (err) {
+        throw err;
+    }
+}
 
 const getCheckout = async (email) => {
     await connectMongo();
@@ -138,5 +150,6 @@ export {
     getReviews,
     getCheckout,
     getCheckoutProducts,
-    getReviewsById
+    getReviewsById,
+    getDeleteReview
 }

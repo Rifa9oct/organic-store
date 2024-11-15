@@ -2,7 +2,7 @@
 
 import { signIn } from "@/auth";
 import EmailTemplate from "@/components/checkout/EmailTemplate";
-import { getDeleteCart, getUpdateCart } from "@/queries/product-queries";
+import { getDeleteCart, getDeleteReview, getUpdateCart } from "@/queries/product-queries";
 import { revalidatePath } from "next/cache";
 import { Resend } from "resend";
 
@@ -31,6 +31,15 @@ export async function customRevalidatePath() {
 export async function deleteCart(id) {
     try {
         const res = await getDeleteCart(id);
+        return res;
+    } catch (error) {
+        throw error;
+    }
+}
+
+export async function deleteReview(id) {
+    try {
+        const res = await getDeleteReview(id);
         return res;
     } catch (error) {
         throw error;
