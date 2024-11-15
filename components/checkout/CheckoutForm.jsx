@@ -68,7 +68,8 @@ const CheckoutForm = ({ user, carts }) => {
         }
         reset();
     }
-    const [firstName, lastName] = user?.name.split(" ");
+
+    const [firstName = "", lastName = ""] = user?.name?.split(" ") || [];
 
     return (
         <>

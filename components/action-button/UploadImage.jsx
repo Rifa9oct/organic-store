@@ -4,6 +4,7 @@ import { customRevalidatePath } from "@/actions";
 import useAxios from "@/hooks/useAxios";
 import axios from "axios";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { useRef } from "react";
 import { MdOutlineModeEditOutline } from "react-icons/md";
 import Swal from "sweetalert2";
@@ -12,6 +13,7 @@ const UploadImage = ({ user, imageApiKey }) => {
     const fileUploadRef = useRef();
     const { axiosAuth } = useAxios();
     const { status, update } = useSession();
+    const router = useRouter();
 
     if (status === "unauthenticated") {
         update();
@@ -19,10 +21,12 @@ const UploadImage = ({ user, imageApiKey }) => {
 
     const handleImageUpload = (e) => {
         e.preventDefault();
-
-        fileUploadRef.current.addEventListener("change", uploadImage);
-        fileUploadRef.current.click();
-
+        if (!user) {
+            router.push("/login");
+        } else {
+            fileUploadRef.current.addEventListener("change", uploadImage);
+            fileUploadRef.current.click();
+        }
     }
 
     const uploadImage = async () => {
