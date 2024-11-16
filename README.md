@@ -13,7 +13,8 @@ I am excited to share my latest project – a complete organic store application
 - **Add to Cart:** Effortlessly add products to your cart.
 - **Edit Quantity:** Adjust product quantities after adding them to the cart.
 - **Seamless Checkout:** Receive an email confirmation post-checkout.
-- **Product Reviews:** Share your feedback on individual products.
+- **Product Reviews:** Share your feedback on individual products, and if
+    needed, easily remove your review anytime.
 - **Profile Photo Upload:** Personalize your account with a profile picture.
 - **Secure Authentication:** Implemented with JWT via NextAuth.
 - **Responsive Design:** Optimized for all device sizes.
