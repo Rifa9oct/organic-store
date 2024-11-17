@@ -133,9 +133,11 @@ const CheckoutForm = ({ user, carts }) => {
                             <label htmlFor="phoneNo" className="block font-bold mb-1 text-sm">Phone number <span
                                 className="text-primary text-lg">*</span></label>
                             <input type="text"
-                                {...register("phoneNo", { required: true })}
+                                {...register("phoneNo", { required: true, minLength: 11, maxLength: 11 })}
                                 name="phoneNo" className="p-3 mb-1 border focus:outline-dotted w-full" />
-                            {errors.phone && <span className="text-sm text-red-500"><MdError className="text-lg inline" /> Phone field is required.</span>}
+                            {errors.phoneNo?.type === "required" && <span className="text-sm text-red-500"><MdError className="text-lg inline" /> Phone field is required.</span>}
+                            {errors.phoneNo?.type === "minLength" && <p className="text-sm mt-1 text-red-500"><MdError className="text-lg inline" />Phone number must be 11 characters.</p>}
+                            {errors.phoneNo?.type === "maxLength" && <p className="text-sm mt-1 text-red-500"><MdError className="text-lg inline" />Phone number must be less than 11 characters.</p>}
                         </div>
                         <div className="font-poppins">
                             <label htmlFor="email" className="block font-bold mb-1 text-sm">Email address <span
