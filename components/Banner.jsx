@@ -6,8 +6,8 @@ const Banner = ({dict}) => {
     return (
         <div className="bg-[#F8F6F3]">
             <div className="max-w-[1320px] mx-auto flex md:flex-row flex-col-reverse text-center md:text-start justify-center md:gap-6 lg:gap-20 items-center py-10 md:py-16 lg:py-[128px]">
-                <Image src="/banner.png" width={607} height={520} alt="banner" className="mx-auto md:mx-0 w-[350px] lg:w-[607px]" />
-                <div>
+                <Image data-aos="fade-right"  data-aos-duration="1500" src="/banner.png" width={607} height={520} alt="banner" className="mx-auto md:mx-0 w-[350px] lg:w-[607px]" />
+                <div data-aos="fade-left"  data-aos-duration="1500">
                     <Image src="/little-leaf.png" width={75} height={33} alt="banner" className="md:mx-0 mx-auto" />
                     <h2 className="text-xl lg:text-2xl font-bold my-3">{dict.BannarSubTitle}</h2>
                     <h1 className="text-4xl lg:text-6xl font-bold">{dict.BannarTitle1}</h1>

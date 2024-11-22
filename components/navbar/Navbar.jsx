@@ -18,7 +18,7 @@ const Navbar = async ({ sideBar, lang }) => {
     const carts = await getCartByUserId(user?.id);
 
     return (
-        <div className='font-poppins relative z-50 flex justify-between items-center py-4 lg:mx-8'>
+        <div data-aos="fade-down"  data-aos-duration="1000" className='font-poppins relative z-50 flex justify-between items-center py-4 lg:mx-8'>
             <div className='flex gap-6 items-center text-gray-600'>
                 <CustomLink path="/">
                     <Image src="/logo.png" width={150} height={70} alt="Logo" />

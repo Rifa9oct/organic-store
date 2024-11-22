@@ -20,7 +20,7 @@ const Reviews = async ({ dict, seeReview }) => {
             <HeaderTitle title={dict.CustomersReviews} />
 
             <div className="max-w-[1200px] mx-auto flex flex-col lg:flex-row gap-10 mb-5">
-                <div className="relative w-[376px] h-[345px] mx-auto lg:mx-0 rounded-lg shadow-lg lg:mt-[78px] p-10 border" >
+                <div data-aos="flip-right" data-aos-duration="1500" className="relative w-[376px] h-[345px] mx-auto lg:mx-0 rounded-lg shadow-lg lg:mt-[78px] p-10 border" >
                     <div className="flex gap-1 justify-center mb-3">
                         {
                             rating.map(rate => (
@@ -43,7 +43,7 @@ const Reviews = async ({ dict, seeReview }) => {
                     </div>
                 </div>
 
-                <div className="relative w-[376px] h-[422px] mx-auto lg:mx-0 rounded-lg shadow-lg text-center text-white bg-[url('/offer.png')]">
+                <div data-aos="flip-right" data-aos-duration="1500" className="relative w-[376px] h-[422px] mx-auto lg:mx-0 rounded-lg shadow-lg text-center text-white bg-[url('/offer.png')]">
                     <div className="flex flex-col justify-center bg-black bg-opacity-60 hover:bg-opacity-75 transition cursor-pointer h-[422px] rounded-lg">
                         <h1 className="text-4xl font-extrabold mb-3">{dict.ReviewOffer1} <br /> {dict.ReviewOffer2} <br /> {dict.ReviewOffer3}</h1>
                         <p className="font-poppins text-gray-300">{dict.ReviewTitle}</p>
@@ -54,7 +54,7 @@ const Reviews = async ({ dict, seeReview }) => {
                     </div>
                 </div>
 
-                <div className="relative w-[376px] h-[345px] mx-auto lg:mx-0 rounded-lg shadow-lg lg:mt-[78px] p-10 border" >
+                <div data-aos="flip-right" data-aos-duration="1500" className="relative w-[376px] h-[345px] mx-auto lg:mx-0 rounded-lg shadow-lg lg:mt-[78px] p-10 border" >
                     <div className="flex gap-1 justify-center mb-3">
                         {
                             rating.map(rate => (
