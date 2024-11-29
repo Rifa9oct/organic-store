@@ -93,7 +93,7 @@ const Reviews = async ({ dict, seeReview }) => {
                                             }
                                         </div>
                                         <p className="text-center text-xl font-bold mb-2">{review.title}</p>
-                                        <p className="h-[120px] text-pretty font-poppins text-gray-500 text-center w-[268px]">{review.message.slice(0, 150)}{`${review.message.length > 150 ? "..." : ""}`}</p>
+                                        <p className="h-[120px] text-pretty font-poppins text-gray-500 text-center w-[268px]">{review.message}</p>
                                         <div className="flex items-center justify-center gap-4 mt-4">
                                             {
                                                 review.image ? (

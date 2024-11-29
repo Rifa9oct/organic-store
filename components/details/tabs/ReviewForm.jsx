@@ -46,9 +46,10 @@ const ReviewForm = ({ user, product, reviews }) => {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} method="post" autoComplete="off">
-            <textarea name="message" {...register("message", { required: true })}
+            <textarea name="message" {...register("message", { required: true, maxLength: 150 })}
                 id="message" placeholder="write here..." cols="45" rows="3" className="outline-lime-500 w-full text-gray-500 p-5 shadow"></textarea>
-            {errors.message && <span className="text-sm mt-1 text-red-500"><MdError className="text-lg inline" /> This field is required.</span>}
+            {errors.message?.type === "required" && <span className="text-sm mt-1 text-red-500"><MdError className="text-lg inline" /> This field is required.</span>}
+            {errors.message?.type === "maxLength" && <p className="text-sm mt-1 text-red-500"><MdError className="text-lg inline" />Review message must be less than 150 characters.</p>}
 
             <div className="flex gap-10" >
                 <div className="w-[550px]">

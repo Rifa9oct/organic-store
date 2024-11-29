@@ -47,9 +47,9 @@ const ServiceItems = ({dict}) => {
 
             <div className="bg-black">
                 <div className="max-w-[1200px] mx-auto flex flex-col lg:flex-row items-center lg:justify-between md:pt-8 pt-5 lg:pt-0 h-[168px]">
-                    <h1 className="text-2xl text-center md:text-4xl font-extrabold text-white ">{dict.Offer}</h1>
+                    <h1 data-aos="fade-right" data-aos-duration="1500" className="text-2xl text-center md:text-4xl font-extrabold text-white ">{dict.Offer}</h1>
                     <Link href="/shop">
-                        <button className="font-poppins mt-3 lg:mt-0 bg-lime-600 hover:bg-lime-500 text-white px-5 py-3 rounded-md">
+                        <button data-aos="fade-left" data-aos-duration="1500" className="font-poppins mt-3 lg:mt-0 bg-lime-600 hover:bg-lime-500 text-white px-5 py-3 rounded-md">
                             <FaShoppingCart className="inline-block text-lg mb-[2px]" /> {dict.ShopNow}</button>
                     </Link>
                 </div>
