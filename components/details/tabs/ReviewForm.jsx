@@ -6,11 +6,9 @@ import { useForm } from "react-hook-form";
 import { MdError } from "react-icons/md";
 import Swal from "sweetalert2";
 
-const ReviewForm = ({ user, product, reviews }) => {
+const ReviewForm = ({ user, product, isAddReview }) => {
     const { axiosAuth } = useAxios();
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
-    const isAddReview = reviews.find(review => (review.productId === product?.id) && (review.userId === user?.userId));
-
     const userName = user?.name || "";
     const userEmail = user?.email || "";
 

@@ -28,7 +28,9 @@ const Reviews = async ({ dict, seeReview }) => {
                             ))
                         }
                     </div>
-                    <p className="text-center text-xl font-bold mb-2">{reviews[0]?.title}</p>
+                    <p className="text-center text-xl font-bold mb-2">
+                        <Link href={`/details/${reviews[0]?.productId}`} >{reviews[0]?.title}</Link>
+                    </p>
                     <p className="h-[120px] text-pretty font-poppins text-gray-500 text-center w-[268px]">{reviews[0]?.message}</p>
                     <div className="flex items-center justify-center gap-4 mt-4">
                         {
@@ -62,7 +64,9 @@ const Reviews = async ({ dict, seeReview }) => {
                             ))
                         }
                     </div>
-                    <p className="text-center text-xl font-bold mb-2">{reviews[1]?.title}</p>
+                    <p className="text-center text-xl font-bold mb-2">
+                        <Link href={`/details/${reviews[1]?.productId}`}>{reviews[1]?.title}</Link>
+                    </p>
                     <p className="h-[120px] text-pretty font-poppins text-gray-500 text-center w-[268px]">{reviews[1]?.message}</p>
                     <div className="flex items-center justify-center gap-4 mt-4">
                         {
@@ -83,7 +87,7 @@ const Reviews = async ({ dict, seeReview }) => {
                     <>
                         <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 mb-5 mt-10">
                             {
-                                reviews?.slice(2).map(review => (
+                                reviews?.slice(2, 8).map(review => (
                                     <div key={review.id} className="relative w-[376px] h-[345px] mx-auto lg:mx-0 rounded-lg shadow-lg p-10 border" >
                                         <div className="flex gap-1 justify-center mb-3">
                                             {
@@ -92,7 +96,10 @@ const Reviews = async ({ dict, seeReview }) => {
                                                 ))
                                             }
                                         </div>
-                                        <p className="text-center text-xl font-bold mb-2">{review.title}</p>
+                                        <p className="text-center text-xl font-bold mb-2">
+                                            <Link href={`/details/${review.productId}`}>{review.title}</Link>
+                                        </p>
+
                                         <p className="h-[120px] text-pretty font-poppins text-gray-500 text-center w-[268px]">{review.message}</p>
                                         <div className="flex items-center justify-center gap-4 mt-4">
                                             {
@@ -106,7 +113,7 @@ const Reviews = async ({ dict, seeReview }) => {
                                             <p className="text-gray-500 font-poppins">{review.name}</p>
                                         </div>
                                         {
-                                            (review.userId === user[0]?.id ) && <DeleteReview review={review} />
+                                            (review.userId === user[0]?.id) && <DeleteReview review={review} />
                                         }
                                     </div>
                                 ))
