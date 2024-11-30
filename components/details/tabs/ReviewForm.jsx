@@ -11,13 +11,14 @@ const ReviewForm = ({ user, product, isAddReview }) => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const userName = user?.name || "";
     const userEmail = user?.email || "";
+    const image = user?.image || "";
 
     const onSubmit = async (data) => {
         if (!user) {
             router.push("/login");
         } else {
             try {
-                const payload = { productId: product?.id, userId:user?.userId, name: data.name, email: data.email, title: product?.title , message: data.message};
+                const payload = { productId: product?.id, userId:user?.userId, name: data.name, email: data.email, title: product?.title , message: data.message, image};
 
                 const res = await axiosAuth.post("/api/auth/review", payload);
 

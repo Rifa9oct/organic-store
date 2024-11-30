@@ -8,9 +8,9 @@ export const POST = async (request) => {
         const { error } = authenticateRequest(request);
         if (error) return error;
 
-        const { productId, userId, title, name, email, message } = await request.json();
+        const { productId, userId, title, name, email, message, image } = await request.json();
 
-        if (!productId || !userId || !title || !name || !message || !email) {
+        if (!productId || !userId || !title || !name || !message || !email || !image) {
             return new NextResponse("Invalid or missing property", {
                 status: 400,
             });
@@ -18,7 +18,7 @@ export const POST = async (request) => {
 
         await connectMongo();
 
-        const payload = { productId, userId, title, name, email, message };
+        const payload = { productId, userId, title, name, email, message, image };
 
         const isReview = await reviewModel.findOne({
             userId: payload.userId,
