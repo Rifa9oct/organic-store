@@ -58,10 +58,10 @@ const Footer = async ({ lang }) => {
                                 <Link href="#"><FaTwitter className="hover:text-white text-gray-400 text-xl" /></Link>
                             </li>
                             <li>
-                                <Link href="#"><FaInstagram className="hover:text-white text-gray-400 text-xl" /></Link>
+                                <Link href="https://www.instagram.com/kohinur_akther.dev" target="_blank"><FaInstagram className="hover:text-white text-gray-400 text-xl" /></Link>
                             </li>
                             <li>
-                                <Link href="https://www.linkedin.com/in/most-kohinur-akther/" target="_blank" ><FaLinkedin className="hover:text-white text-gray-400 text-xl" /></Link>
+                                <Link href="https://www.linkedin.com/in/most-kohinur-akther" target="_blank"><FaLinkedin className="hover:text-white text-gray-400 text-xl" /></Link>
                             </li>
                         </div>
                     </div>

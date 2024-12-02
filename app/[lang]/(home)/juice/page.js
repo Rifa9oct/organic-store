@@ -6,7 +6,7 @@ export const metadata = {
     description: "Juice page description",
 };
 
-const JuicePage = ({ searchParams: { query, page, min, max } }) => {
+const JuicePage = ({ searchParams: { query, page, min, max, sort } }) => {
     const pageNo = page ? page : "1";
 
     return (
@@ -19,6 +19,7 @@ const JuicePage = ({ searchParams: { query, page, min, max } }) => {
                     query={query}
                     min={min}
                     max={max}
+                    sort={sort}
                 />
             </div>
         </div>

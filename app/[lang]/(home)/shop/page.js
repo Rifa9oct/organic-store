@@ -6,7 +6,7 @@ export const metadata = {
     description: "Shop page description",
 };
 
-const ShopPage = ({searchParams: {query, page, min, max}}) => {
+const ShopPage = ({searchParams: {query, page, min, max, sort}}) => {
     const pageNo = page? page : "1";
     
     return (
@@ -19,6 +19,7 @@ const ShopPage = ({searchParams: {query, page, min, max}}) => {
                     query={query}
                     min={min}
                     max={max}
+                    sort={sort}
                 />
             </div>
         </div>

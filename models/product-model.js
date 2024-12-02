@@ -17,7 +17,7 @@ const productSchema = new Schema({
         required: true,
         type: String
     },
-    quantity:{
+    quantity: {
         required: true,
         type: Number
     },
@@ -52,6 +52,15 @@ const productSchema = new Schema({
     arivalStatus: {
         required: true,
         type: String
+    },
+    createdAt: {
+        required: true,
+        type: Date,
+        default: Date.now,
+    },
+    popularity: {
+        required: true,
+        type: Number,
     },
 });
 

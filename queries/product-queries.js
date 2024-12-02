@@ -12,7 +12,7 @@ const getProducts = async () => {
     return replaceMongoIdInArray(products);
 };
 
-const getPerPageProducts = async (title, query, page, min, max) => {
+const getPerPageProducts = async (title, query, page, min, max, sort) => {
     await connectMongo();
 
     const skip = (page - 1) * 9;
@@ -36,7 +36,19 @@ const getPerPageProducts = async (title, query, page, min, max) => {
             filter.price = { $gte: minValue, $lte: maxValue };
         }
 
-        const allProducts = await productModel.find(filter).skip(skip).limit(9);
+        const sortOptions = {};
+
+        if (sort === "popularity") {
+            sortOptions.popularity = -1;
+        } else if (sort === "latest") {
+            sortOptions.createdAt = -1;
+        } else if (sort === "low to high") {
+            sortOptions.price = 1;
+        } else if (sort === "high to low") {
+            sortOptions.price = -1;
+        }
+
+        const allProducts = await productModel.find(filter).sort(sortOptions).skip(skip).limit(9);
 
         products = replaceMongoIdInArray(allProducts);
         totalProduct = await productModel.countDocuments(filter);

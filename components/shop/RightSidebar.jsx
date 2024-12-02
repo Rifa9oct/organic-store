@@ -2,9 +2,10 @@ import { getPerPageProducts } from "@/queries/product-queries";
 import ProductCard from "../ProductCard";
 import Pagination from "./Pagination";
 import Image from "next/image";
+import Sorting from "./sorting/Sorting";
 
-const RightSidebar = async ({ title, query, pageNo, min, max }) => {
-    const { products, totalProduct } = await getPerPageProducts(title, query, pageNo, min, max);
+const RightSidebar = async ({ title, query, pageNo, min, max, sort }) => {
+    const { products, totalProduct } = await getPerPageProducts(title, query, pageNo, min, max, sort);
 
     const start = (pageNo - 1) * 9 + 1;
     const end = Math.min((pageNo - 1) * 9 + 9, totalProduct);
@@ -21,13 +22,7 @@ const RightSidebar = async ({ title, query, pageNo, min, max }) => {
 
             <div className="font-poppins flex justify-between items-center text-gray-500">
                 <h3>Showing {`${start}-${end} of ${totalProduct} `}results</h3>
-                <select className="font-poppins p-2 outline-lime-500 cursor-pointer">
-                    <option value="Default Sorting" defaultValue="Default Sorting">Default sorting</option>
-                    <option value="Sort by popularity">Sort by popularity</option>
-                    <option value="Sort by latest">Sort by latest</option>
-                    <option value="Sort by low to high">Sort by low to high</option>
-                    <option value="Sort by high to low">Sort by high to low</option>
-                </select>
+                <Sorting />
             </div>
             {
                 products.length !== 0 ? (
